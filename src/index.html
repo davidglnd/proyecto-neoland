@@ -1,12 +1,70 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi practica de HTML</title>
-</head>
-<body>
-    <h1>Noticia periodico</h1>
-    <p>Hoy en neoland hemos enpezado a nueva convocatoria de full stack</p>
-</body>
+    <title>Mi práctica de HTML</title>
+  </head>
+  <body>
+    <header>
+        <h1>Periodico</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+            </ul>
+        </nav>
+    </header>
+    <article>
+        <h1>Un Alcaraz muy centrado no deja espacio a Shapovalov</h1>
+        <h2>Está ya en octavos de final de Indian Wells</h2>
+        <figure>
+            <img src="img/400x200.svg" alt="Carlos Alcaraz sacando" title="Carlos Alcaraz sacando" />
+            <figcaption>Golpe ganador de Alcaraz</figcaption>
+        </figure>
+        <p>
+            Hemos visto con cierta frecuencia que en ocasiones el mayor peligro para Carlos Alcaraz viene de sí mismo: 
+            que se complica partidos por entrar en pequeñas crisis cuando parece tener los partidos dominados. 
+            No le está pasando esto en Indian Wells. Ante Quentin Halys logró un triunfo casi administrativo, a base de presentar 
+            los papeles de su superioridad, y ante Denis Shapovalov, por 6-2 y 6-4 en 83 minutos, ha logrado lo mismo pero ante un rival de superior talla
+            Denis está actualmente en las cercanías del 'top 30', pero ha sido no hace tanto 'top 10', acaba de ganar un ATP 500 y para él 
+            no es muy raro ganar a líderes del circuito. 
+            Ante Carlos Alcaraz tuvo dos problemas: el primero, que no logró sacar bien: a su pobre porcentaje de primeros se sumaron nada menos que ocho 
+            dobles faltas. 
+            El seguro, que un Carlos muy serio y concentrado no le dejó espacios para la rebelión cuando conseguía entrar en juego.
+        </p>
+        <cite><a href="perfil-del-escritor.html" title="autor" target="_blank">FERNANDO M. CARREÑO</a></cite>
+        <p>11/03/24</p>
+        <ol>
+            <caption>Mas noticias:</caption>
+            <li><a href="/otra-noticia.html" title="enlace a otra noticia"><img src="img/70x50.svg" alt="noticia 1" title="noticia 1"></a></li>
+            <li><a href="/otra-noticia.html" title="enlace a otra noticia"><img src="img/70x50.svg" alt="noticia 2" title="noticia 2"></a></li>
+            <li><a href="/otra-noticia.html" title="enlace a otra noticia"><img src="img/70x50.svg" alt="noticia 3" title="noticia 3"></a></li>
+            <li><a href="/otra-noticia.html" title="enlace a otra noticia"><img src="img/70x50.svg" alt="noticia 4" title="noticia 4"></a></li>
+        </ol>
+      
+      
+
+
+
+      <ul>
+        <caption>Comentarios de la noticia:</caption>
+        <li><p>Partidazo!!</p></li>
+        <li><p>Partidazo!!</p></li>
+        <li><p>Partidazo!!</p></li>
+      </ul>
+    </article>
+    <aside>
+      <form action="nuevo-comentario">
+        <h1>Deja tu comentario:</h1>
+        <input type="text" placeholder="Escribe aqui tu comentario" name="comentario">
+        <button>Enviar</button>
+      </form>
+    </aside>
+    <footer>
+        <ul>
+            <li><a href="#">Politica de cookies</a></li>
+            <li><a href="#">Terminos de uso</a></li>
+        </ul>
+    </footer>
+  </body>
 </html>
