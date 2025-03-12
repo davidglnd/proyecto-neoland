@@ -1,0 +1,25 @@
+ol>li>a{
+    color: red;
+}
+table{
+    background-color: aqua;
+    th{
+        text-transform: uppercase;
+    }
+    thead{
+        background-color: green;
+    }
+    tbody{
+        background-color: violet;
+    }
+}
+input:invalid{
+    background-color: ivory;
+    outline: 2px solid red;
+}
+legend{
+    font-size: 30px;
+}
+textarea{
+    display: block;
+}
