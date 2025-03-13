@@ -4,11 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pagina de inicio</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=PT+Sans+Narrow:wght@400;700&family=Roboto:ital,wght@0,100..900;1,100..900&family=Tauri&display=swap">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/styles.mobile.css" media="screen and (max-width: 480px)">
+    <link rel="stylesheet" href="css/style.desktop.css" media="screen and (max-width: 481px)">
 </head>
 <body>
     <header>
-        <h1 id="cabezera">Periodico</h1>
+        <h1 id="cabezera">NOTICIAS DEPORTIVAS</h1>
         <nav>
             <ul>
                 <li><a href="index.html">Inicio</a></li>
@@ -17,13 +23,13 @@
         </nav>
     </header>
     <main>
-        <h1>Listado de noticias</h1>
+        <h1 id="titulo-contenido">Listado de noticias</h1>
         <ol><!--EMMET Te crea por ejemplo con ol>li*3 tres elementos de golpe y puedes rellenarlo con atributos-->
             <li><a href="noticia.html">Noticia princpal</a></li>
             <li><a href="noticia.html">2 noticia</a></li>
             <li><a href="noticia.html">3 noticia</a></li>
         </ol>
-        <table border="1" width="50%" cellspacing="0" >
+        <table  cellspacing="0" class="tabla-noticias">
             <caption>Listado de noticias</caption>
             <thead>
                 <tr>
@@ -35,34 +41,34 @@
             </thead>
             <tbody>
                 <tr>
-                    <td><a href="noticia.html"><img src="img/20x10.svg" alt="" width="100%" ></a></td>
+                    <td><a href="noticia.html"><img src="img/70x50.svg" alt="" width="100%" ></a></td>
                     <td>Titular</td>
                     <td>Resumen extendido de la noticia</td>
-                    <td>Numero de vositas</td>
+                    <td>Numero de visitas</td>
                 </tr>
                 <tr>
-                    <td><a href="noticia.html"><img src="img/20x10.svg" alt="" width="100%" ></a></td>
+                    <td><a href="noticia.html"><img src="img/70x50.svg" alt="" width="100%" ></a></td>
                     <td>Titular</td>
                     <td>Resumen extendido de la noticia</td>
-                    <td>Numero de vositas</td>
+                    <td>Numero de visitas</td>
                 </tr>
                 <tr>
-                    <td><a href="noticia.html"><img src="img/20x10.svg" alt="" width="100%" ></a></td>
+                    <td><a href="noticia.html"><img src="img/70x50.svg" alt="" width="100%" ></a></td>
                     <td>Titular</td>
                     <td>Resumen extendido de la noticia</td>
-                    <td>Numero de vositas</td>
+                    <td>Numero de visitas</td>
                 </tr>
                 <tr>
-                    <td><a href="noticia.html"><img src="img/20x10.svg" alt="" width="100%" ></a></td>
+                    <td><a href="noticia.html"><img src="img/70x50.svg" alt="" width="100%" ></a></td>
                     <td>Titular</td>
                     <td>Resumen extendido de la noticia</td>
-                    <td>Numero de vositas</td>
+                    <td>Numero de visitas</td>
                 </tr>
             </tbody>
             <tfoot>
                 <tr>
-                    <th>total:</th>
-                    <td colspan="6">100</td>
+                    <th colspan="3">Total de visitas:</th>
+                    <td >100</td>
                 </tr>
             </tfoot>
         </table>

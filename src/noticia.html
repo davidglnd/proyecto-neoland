@@ -4,7 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Noticias deportivas</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=PT+Sans+Narrow:wght@400;700&family=Roboto:ital,wght@0,100..900;1,100..900&family=Tauri&display=swap">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/styles.mobile.css" media="screen and (max-width: 480px)">
+    <link rel="stylesheet" href="css/style.desktop.css" media="screen and (max-width: 481px)">
   </head>
   <body>
     <header>
@@ -23,7 +29,7 @@
             <img src="img/400x200.svg" alt="Carlos Alcaraz sacando" title="Carlos Alcaraz sacando" />
             <figcaption>Golpe ganador de Alcaraz</figcaption>
         </figure>
-        <p>
+        <p id="parrafo-principal">
             Hemos visto con cierta frecuencia que en ocasiones el mayor peligro para Carlos Alcaraz viene de sí mismo: 
             que se complica partidos por entrar en pequeñas crisis cuando parece tener los partidos dominados. 
             No le está pasando esto en Indian Wells. Ante Quentin Halys logró un triunfo casi administrativo, a base de presentar 
@@ -48,7 +54,7 @@
 
 
 
-      <ul>
+      <ul id="seccion-de-comentarios">
         <h2>Comentarios de la noticia:</h2>
         <li><p>Partidazo!!</p></li>
         <li><p>Partidazo!!</p></li>
@@ -59,7 +65,7 @@
       </ul>
     </article>
     <aside>
-      <form action="nuevo-comentario">
+      <form action="nuevo-comentario" id="formulario-comentario">
         <h1>Deja tu comentario:</h1>
         <input type="text" placeholder="Escribe aqui tu comentario" name="comentario">
         <button>Enviar</button>
