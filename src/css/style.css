@@ -4,7 +4,7 @@ Hoja de estilos general de la pagina
 --Colores
 */
 html{
-    background-color:rgb(232, 255, 255)
+    background-color: rgba(121, 197, 197, 0.568);
 }
 body {
     font-family: "PT Sans Narrow", sans-serif;
@@ -12,10 +12,7 @@ body {
     font-weight: 400;
     font-style: normal;
     font-variation-settings: "wdth" 100;
-    font-size: 24px;
     line-height: 1.3em;
-    /*background: rgba(0, 0, 0, 0.322);*/
-    margin: 10px;
 }
     h1,
     h2,
@@ -38,7 +35,7 @@ body {
   header>h1{
     font-size: 2em;
     background: rgb(255,255,255);
-    background: linear-gradient(0deg, rgba(255,255,255,1) 34%, rgba(255,136,0,1) 57%, rgba(214,172,43,1) 100%);
+    background: linear-gradient(0deg, rgb(160, 14, 14) 34%, rgba(255,136,0,1) 57%, rgba(214,172,43,1) 100%);
     background-clip: text;
     color: rgb(0 0 0 / 20%);
     text-align: center;
@@ -46,28 +43,37 @@ body {
     border-top:black 20px solid;
   }
   nav{
-    padding-top:15px;
-    ul>li{
-        list-style-type: none;
-        display: inline;
-        padding-right: 5px;
+    text-align: center;
+    a:hover{/*la regla dice que el ortden es :link :visited :hover :active*/
+
+      color:red;
     }
+    
   }
-  /*main*/
-  main>h1{
+  /*main index*/
+  main{
     text-align: center;
   }
-  /*main --> tabla*/
+  /*main index --> tabla*/
   caption{
     font-family: "Tauri", sans-serif;
     font-weight: 400;
     font-style: normal;
+    text-align: end;
   }
   .tabla-noticias{
-    text-align: center;
     border: 1px solid black;
-    width: 50%;
-    
+    tr>td{
+      background-color: rgba(54, 92, 74, 0.7);
+      vertical-align: middle;
+    }
+      
+    tr>th{
+      background-color: rgba(0, 228, 118, 0.7);
+    }
+    tr:nth-child(even) {
+      background-color: rgba(0, 228, 118, 0.7);
+    }
   }
     thead>tr>th{
     font-family: "Caveat", cursive;
@@ -84,22 +90,25 @@ body {
     font-weight: 400;
     font-style: normal;
     border: 1px solid black;
-    padding-bottom: 2%;
   
   }
-  header>nav>ul>li>a{
-    font-size: 1.0em;
+  tbody>tr>td>a>img{
+    border-radius: 50px;
+    max-width: 100%;
+    &:hover{
+        border-radius: 0px;
+
+    }
   }
-  footer>ul>li>a{
-    font-size: 0.7em;
-  }
+
+
   #formulario-comentario>h1{
     font-size: 1.1em;
   }
   #seccion-de-comentarios>h2{
     font-size: 1.5em;
   }
-#parrafo-principal::first-letter{
+  #parrafo-principal::first-letter{
         font-size: 1.5rem;
         font-weight: bold;
         color: rgb(252, 0, 0);
@@ -108,10 +117,45 @@ body {
 
 /*Footer*/
 footer{
-    background-color: grey;
+    background-color: rgb(197, 158, 158);
 }
-
-
+footer>ul>li>a{
+  font-size: 0.7em;
+  border:1px solid transparent;
+  &:hover{
+    border:2px solid black;
+  }
+}
+/*formulario*/
+/*main*/
+form{
+  button{
+    font-family: "Tauri", sans-serif;
+    font-size: 1em;
+    font-weight: bold;
+    color:white;
+    height:30%;
+    width: 10%;
+    border-radius: 5px ;
+    background-image: linear-gradient(0deg, #f3004d 10%, #ff5900);
+    &:hover{
+      box-shadow: 2px 2px 2px 2px #ff5900;
+    }
+    &:active{
+      box-shadow: 2px 2px 2px 2px #f3004d;
+    }
+  }
+  input:invalid{
+      background-color: rgb(255, 255, 0);
+      border: transparent 2px solid;
+      &:hover{
+        border: red 2px solid;
+      }
+      &:focus { 
+        outline: none; 
+      }
+  }
+}
 
 
 

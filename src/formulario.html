@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=PT+Sans+Narrow:wght@400;700&family=Roboto:ital,wght@0,100..900;1,100..900&family=Tauri&display=swap">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/styles.mobile.css" media="screen and (max-width: 480px)">
-    <link rel="stylesheet" href="css/style.desktop.css" media="screen and (max-width: 481px)">
+    <link rel="stylesheet" href="css/style.desktop.css" media="screen and (min-width: 481px)">
 </head>
 <body>
     <header>
@@ -25,7 +25,7 @@
     <main>
         <form >
             <legend>Formulario de registro</legend>
-            <fieldset>
+            <fieldset class="agrupaciones">
                 <label for="nombre">Nombre:</label>
                 <input type="text" name="nombre" id="nombre" placeholder="Escribe aqui tu nombre" minlength="2" title="minimo dos caracteres" required>
 
@@ -39,13 +39,13 @@
 
                 <label for="edad">Edad</label>
                 <input type="number" name="edad" id="edad" value="18" min="18" max="99">
-                <label for="fnac">Fecha de nacimiento:</label>
+                <label for="fnac" class="etiqbloq">Fecha de nacimiento:</label>
                 <input type="date" name="fnac" id="fnac">
 
                 <label for="pass">Contraseña:</label>
                 <input type="password" name="pass" id="pass" pattern="[\w \d ][^@]{4,8}" title="Combinacion de entre 4 y 8 digitos o letras sin @">
             </fieldset>
-            <fieldset>
+            <fieldset class="agrupaciones">
                 <label for="genero">Como te identificas:</label>
                 <select name="genero" id="genero">
                     <option value="hombre">Hombre</option>
@@ -55,7 +55,7 @@
                 <label for="sobreti">Cuentanos sobre ti:</label>
                 <textarea type="text" name="sobreti" id="sobreti"></textarea>
                 </fieldset> 
-            <fieldset>
+            <fieldset class="agrupaciones">
                 <p>Noticias preferidas:</p>
                 <label for="motor">Deportes de motor</label>
                 <input type="checkbox" name="check" value="motor" id="motor">   
@@ -69,7 +69,6 @@
     </main>
     <footer>
         <ul>
-            <h3>Pie de pagina</h3>
             <li><a href="#">Politica de cookies</a></li>
             <li><a href="#">Terminos de uso</a></li>
             <li><a href="#cabezera">Volver arriba</a></li>

@@ -3,3 +3,17 @@ Hoja de estilos Movil de la pagina
 --Disposicion de elementos
 --Ajustes de tipografia en el movil
 */
+body{
+    font-size: 18px;
+}
+/*Header*/
+  nav{
+    padding-top:15px;
+    border-bottom: black 10px solid;
+    ul>li{
+        list-style-type: none;
+        display: inline;
+        padding-right: 5px;
+        font-size: 1.5em;
+    }
+  }
