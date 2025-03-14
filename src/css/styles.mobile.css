@@ -3,17 +3,19 @@ Hoja de estilos Movil de la pagina
 --Disposicion de elementos
 --Ajustes de tipografia en el movil
 */
-body{
-    font-size: 18px;
+main>table>tbody>tr>td{
+  line-height: 0px;
 }
-/*Header*/
-  nav{
-    padding-top:15px;
-    border-bottom: black 10px solid;
-    ul>li{
-        list-style-type: none;
-        display: inline;
-        padding-right: 5px;
-        font-size: 1.5em;
-    }
-  }
+main>ol{
+  border: 2px solid black;
+  width: 20%;
+  margin:0 auto;
+}
+main>ol>li{
+  display:inline;
+  
+}
+table{
+  margin: 0 auto;
+  width: 60%;
+}

@@ -109,14 +109,9 @@ body {
     }
   }
 
-  #parrafo-principal::first-letter{
-        font-size: 1.5rem;
-        font-weight: bold;
-        color: rgb(252, 0, 0);
-}
 
 /*formulario*/
-form{
+#formulario-registro{
   background-color: rgb(235, 138, 138);
   fieldset{
     border: 2px dashed black;
@@ -133,13 +128,14 @@ form{
     background: #baecfc;
     /*background-color: #baecfc;*/
     border: rgb(233, 87, 87) 2px dotted;
+    &:hover{
+      border: rgb(233, 87, 87) 2px solid;
+    }
     &:focus { 
       outline: none; 
       border:red 2px solid;
     }
-    &:hover{
-      border: rgb(233, 87, 87) 2px solid;
-    }
+
   }
   input:invalid{
     background-color: rgb(255, 255, 0);
@@ -163,22 +159,37 @@ form{
     background-color: #baecfc;
     border: rgb(233, 87, 87) 3px dotted;
     &:focus { 
-      outline: rgb(233, 87, 87) 3px solid;
-      border:0px solid transparent;
+      outline: none;
+      border:rgb(233, 87, 87) 3px solid;
     }
     
   }
   select{
+    font-size:0.75em;
     border-radius: 20px;
     background-color: #baecfc;
     border: rgb(233, 87, 87) 3px dotted;
     &:focus { 
-      outline: rgb(233, 87, 87) 3px solid;
-      border:0px solid transparent;
+      outline:none;
+      border:rgb(233, 87, 87) 3px solid;
     }
   }
 }
 /*Noticias*/
+#parrafo-construido{
+  color: rgb(92, 16, 16);
+}
+#parrafo-principal{
+  text-align:left;
+  &::first-letter{
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: rgb(59, 0, 0);
+  }
+}
+.estilos-comunes{
+  background:#c2bebe9d
+}
 #formulario-comentario>h1{
   font-size: 1.1em;
 }
@@ -186,7 +197,6 @@ form{
   font-size: 1.5em;
 }
 #noticia1{
-  border: 1px solid black;
   h2:not(ol>h2,ul>h2){
     color:#685353
   }
@@ -194,6 +204,9 @@ form{
     text-align: center;
     font-size: 0.8em;
 }
+}
+#agrupados{
+  font-size: 0.8em;
 }
 /*Botones y utilidades que se repiten entre paginas*/
 .boton-defecto{

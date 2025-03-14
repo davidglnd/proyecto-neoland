@@ -5,120 +5,144 @@ Hoja de estilos desktop de la pagina
 */
 body{
     min-height: 100vh;
-}
-body{
     font-size: 24px;
 }
 main{
-    padding-bottom:10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-bottom: 2%;
 }
 /*Header*/
 nav{
     padding-top:15px;
     padding-bottom: 15px;
     border-bottom: black 10px solid;
-    ul>li{
-        display: inline;
-        padding-right: 60px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    ul{
+        display:flex;
+        flex-direction: row;
         font-size: 1.5em;
+        gap: 1em;
     }
   }
-/* main>tabla*/
-
-main>table>tbody>tr>td{
-    line-height: 0px;
+/* posicion en el index*/
+#index{
+    display: flex;
+    flex-direction: column;    
+    align-items: center;
+    gap:1em;
 }
-main>ol{
-    border: 2px solid black;
-    width: 20%;
-    margin:0 auto;
+#index>div>ol{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    gap:1em;
 }
-main>ol>li{
-    display:inline;
+#index>table{
+    width:50%;
     
 }
-table{
-    margin: 0 auto;
-    width: 60%;
-}
-/*main form*/
+/*form*/
 form{
-    padding-bottom: 5%;
-    width: 80%;
-    margin: 0 auto;
+    padding-bottom: 1%;
+    display:flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 60%;
+    gap:0.5em;
     legend{
         padding-top: 10px;
         padding-bottom: 10px;
         text-decoration: underline;
         font-size: 1.5em;
     }
+    }
+#primer-campo,#segundo-campo,#tercer-campo,#quinto-campo{
+    width:45%;
+    height: 180px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top:3%;
 }
-.agrupaciones{
-    width: 80%;
-    margin: 10px auto;
-    padding-bottom: 10px;
+#cuarto-campo{
+    width:45%;
+    height: 100px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top:3%;
 }
-fieldset>textarea,input:not(#edad,#fnac,#motor,#tenis,#baloncesto){
-    
-    display:block;
-    margin: 0 auto;
+
+#sexto-campo{/*QQ*/
+    width:45%;
+    height: 100px;
 }
-.etiqbloq{
-    display: block;
+#botonsubmit{
+    width:10%;
+    height: 35px;
 }
-textarea{
-    width:40%;
-    height: 60px ;
-  }
-#nombre,#email,#telefono,#movil{  
-   
-    width: 40%;
-    height: 60px ;
-}
-#edad{
-    display: block;
-    width: 4%;
-    margin: 0 auto;
-}
-#fnac{
-    display: block;
-    width: 10%;
-    margin: 0 auto;
-}
-#genero{
-    display: block;
-    width: 10%;
-    margin: 0 auto;
-}
+
 /*Noticias*/
-#noticia1{
-    width:80%;
-    margin:0 auto;
-    padding-bottom: 5%;
-    h1,h2{
-        text-align: center;
+#main-noticia{
+    display:flex;
+    flex-direction: column;
+    align-items: center;   
+    #noticia1{
+        width: 60%;
+        #parrafo-construido{
+            width: 100%;
+            display:flex;
+            flex-direction: row;
+            justify-content: center;
+            gap:2%;
+            padding-top: 2%;
+            #parrafo-principal{
+                width: 40%;
+            }
+            #parrafo-secundario{
+                width: 40%;
+            }
+        }
+        #agrupados{
+            padding-top: 2%;
+            justify-self: end;
+        }
     }
-    figure{
-        width:80%;
-        margin:0 auto;
+
+  }
+  #mas-noticias{
+    width:60%;
+    ol{
+        display:flex;
+        flex-direction: row;
+        justify-content: center;
+        gap:1em;
     }
-    img:not(ol>li>a>img){
-        display:block;
-        width:50%;
-        margin:0 auto;
-    }
-    figcaption{
-        display:block;
-        width:80%;
-        margin:0 auto;
+  }
+  #seccion-de-comentarios{
+    display:flex;
+    flex-direction: column;
+/*vamos por aqui caja de comentarios comentarios centro h2 alado*/
+    width:60%;
+    ul{
+        padding-top: 2%;
     }
   }
 /*footer*/
 footer{
-    text-align: center;
-    padding-bottom: 5%;
-    ul>li{
-        display: inline;
-        padding-right: 60px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    ul{
+        display:flex;
+        flex-direction: row;
+        justify-content:flex-start ;
+        font-size: 1.5em;
+        gap: 1em;
     }
 }
