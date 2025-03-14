@@ -4,7 +4,8 @@ Hoja de estilos general de la pagina
 --Colores
 */
 html{
-    background-color: rgba(121, 197, 197, 0.568);
+  background: linear-gradient(45deg, rgb(136, 163, 172) 25%, rgb(243, 161, 161) 75%,rgb(250, 250, 250));
+    
 }
 body {
     font-family: "PT Sans Narrow", sans-serif;
@@ -35,7 +36,7 @@ body {
   header>h1{
     font-size: 2em;
     background: rgb(255,255,255);
-    background: linear-gradient(0deg, rgb(160, 14, 14) 34%, rgba(255,136,0,1) 57%, rgba(214,172,43,1) 100%);
+    background: linear-gradient(0deg, rgb(160, 14, 14) 34%, rgb(250, 149, 149) 57%, rgb(255, 72, 0) 100%);
     background-clip: text;
     color: rgb(0 0 0 / 20%);
     text-align: center;
@@ -50,32 +51,39 @@ body {
     }
     
   }
-  /*main index*/
+  /*main*/
   main{
     text-align: center;
   }
   /*main index --> tabla*/
   caption{
     font-family: "Tauri", sans-serif;
-    font-weight: 400;
     font-style: normal;
     text-align: end;
+    font-size: 1em;
   }
   .tabla-noticias{
     border: 1px solid black;
-    tr>td{
-      background-color: rgba(54, 92, 74, 0.7);
+    tr{
+      background-color: rgb(235, 138, 138);
+      td{
       vertical-align: middle;
+      }
+      &:nth-child(even) {
+        background-color: #96d8ee;
+      }
+    }
+    tfoot>td{
+      background-color: rgb(238, 78, 78);
     }
       
     tr>th{
-      background-color: rgba(0, 228, 118, 0.7);
-    }
-    tr:nth-child(even) {
-      background-color: rgba(0, 228, 118, 0.7);
+      background-color: rgb(238, 78, 78);
     }
   }
-    thead>tr>th{
+    tfoot>tr>td,
+    thead>tr>th
+    {
     font-family: "Caveat", cursive;
     font-optical-sizing: auto;
     font-weight: 400;
@@ -101,62 +109,120 @@ body {
     }
   }
 
-
-  #formulario-comentario>h1{
-    font-size: 1.1em;
-  }
-  #seccion-de-comentarios>h2{
-    font-size: 1.5em;
-  }
   #parrafo-principal::first-letter{
         font-size: 1.5rem;
         font-weight: bold;
         color: rgb(252, 0, 0);
 }
 
-
-/*Footer*/
-footer{
-    background-color: rgb(197, 158, 158);
-}
-footer>ul>li>a{
-  font-size: 0.7em;
-  border:1px solid transparent;
-  &:hover{
-    border:2px solid black;
-  }
-}
 /*formulario*/
-/*main*/
 form{
-  button{
-    font-family: "Tauri", sans-serif;
-    font-size: 1em;
-    font-weight: bold;
-    color:white;
-    height:30%;
-    width: 10%;
-    border-radius: 5px ;
-    background-image: linear-gradient(0deg, #f3004d 10%, #ff5900);
+  background-color: rgb(235, 138, 138);
+  fieldset{
+    border: 2px dashed black;
+    background: linear-gradient(45deg, rgb(136, 163, 172) 25%, rgb(243, 161, 161) 75%,rgb(250, 250, 250));
     &:hover{
-      box-shadow: 2px 2px 2px 2px #ff5900;
+      border:2px dashed #baecfc;
     }
-    &:active{
-      box-shadow: 2px 2px 2px 2px #f3004d;
+  }
+  /**inputs*/
+  input{
+    font-size:1em;
+    text-align: center;
+    border-radius: 20px;
+    background: #baecfc;
+    /*background-color: #baecfc;*/
+    border: rgb(233, 87, 87) 2px dotted;
+    &:focus { 
+      outline: none; 
+      border:red 2px solid;
+    }
+    &:hover{
+      border: rgb(233, 87, 87) 2px solid;
     }
   }
   input:invalid{
-      background-color: rgb(255, 255, 0);
-      border: transparent 2px solid;
-      &:hover{
-        border: red 2px solid;
-      }
-      &:focus { 
-        outline: none; 
-      }
+    background-color: rgb(255, 255, 0);
+    border: transparent 2px solid;
+    color:red;
+    &:hover{
+      border: red 2px solid;
+    }
+    &:focus { 
+      outline: none; 
+    }
+  }
+  input::placeholder{
+    font-family: "Tauri", sans-serif;
+    color:#000000;
+  }
+  textarea{
+    font-size:1em;
+    text-align: center;
+    border-radius: 20px;
+    background-color: #baecfc;
+    border: rgb(233, 87, 87) 3px dotted;
+    &:focus { 
+      outline: rgb(233, 87, 87) 3px solid;
+      border:0px solid transparent;
+    }
+    
+  }
+  select{
+    border-radius: 20px;
+    background-color: #baecfc;
+    border: rgb(233, 87, 87) 3px dotted;
+    &:focus { 
+      outline: rgb(233, 87, 87) 3px solid;
+      border:0px solid transparent;
+    }
   }
 }
-
+/*Noticias*/
+#formulario-comentario>h1{
+  font-size: 1.1em;
+}
+#seccion-de-comentarios>h2{
+  font-size: 1.5em;
+}
+#noticia1{
+  border: 1px solid black;
+  h2:not(ol>h2,ul>h2){
+    color:#685353
+  }
+  figcaption{
+    text-align: center;
+    font-size: 0.8em;
+}
+}
+/*Botones y utilidades que se repiten entre paginas*/
+.boton-defecto{
+  font-family: "Tauri", sans-serif;
+  font-size: 1em;
+  font-weight: bold;
+  color:white;
+  height:30%;
+  width: 10%;
+  border-radius: 5px ;
+  background-image: linear-gradient(0deg, #f3004d 10%, #ff5900);
+  &:hover{
+    box-shadow: 2px 2px 2px 2px #ff5900;
+  }
+  &:active{
+    box-shadow: 2px 2px 2px 2px #f3004d;
+  }
+}
+/*Footer*/
+footer{
+  background-color: rgb(197, 158, 158);
+}
+footer>ul>li>a{
+font-size: 0.7em;
+border:1px solid transparent;
+&:hover{
+  border:2px solid black;
+}
+}
 
 
 

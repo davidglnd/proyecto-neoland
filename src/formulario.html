@@ -27,21 +27,24 @@
             <legend>Formulario de registro</legend>
             <fieldset class="agrupaciones">
                 <label for="nombre">Nombre:</label>
-                <input type="text" name="nombre" id="nombre" placeholder="Escribe aqui tu nombre" minlength="2" title="minimo dos caracteres" required>
+                <input type="text" name="nombre" id="nombre" placeholder="Escribe aqui tu nombre"  title="minimo dos caracteres" >
 
                 <label for="email">Email:</label>
-                <input type="email" name="email" id="email" placeholder="Escribe aqui tu email"  required>
-
+                <input type="email" name="email" id="email" placeholder="Escribe aqui tu email"  minlength="5">
+            </fieldset>
+            <fieldset class="agrupaciones">
                 <label for="telefono">Telefono fijo:</label>
                 <input type="tel" name="telefono" id="telefono" pattern="9[0-9]{8}" title="Tu numero fijo debe empezar por 9 y tener 9 cifras" >
                 <label for="movil">Telefono movil:</label>
-                <input type="tel" name="movil" id="movil" pattern="6[0-9]{8}" title="Tu numero de movil debe empezar por 6 y tener 9 cifras" required>
-
+                <input type="tel" name="movil" id="movil" pattern="6[0-9]{8}" title="Tu numero de movil debe empezar por 6 y tener 9 cifras" >
+            </fieldset>
+            <fieldset class="agrupaciones">        
                 <label for="edad">Edad</label>
                 <input type="number" name="edad" id="edad" value="18" min="18" max="99">
                 <label for="fnac" class="etiqbloq">Fecha de nacimiento:</label>
                 <input type="date" name="fnac" id="fnac">
-
+            </fieldset>    
+            <fieldset class="agrupaciones">
                 <label for="pass">Contraseña:</label>
                 <input type="password" name="pass" id="pass" pattern="[\w \d ][^@]{4,8}" title="Combinacion de entre 4 y 8 digitos o letras sin @">
             </fieldset>
@@ -54,7 +57,7 @@
                 </select>
                 <label for="sobreti">Cuentanos sobre ti:</label>
                 <textarea type="text" name="sobreti" id="sobreti"></textarea>
-                </fieldset> 
+            </fieldset> 
             <fieldset class="agrupaciones">
                 <p>Noticias preferidas:</p>
                 <label for="motor">Deportes de motor</label>
@@ -64,7 +67,7 @@
                 <label for="baloncesto">Baloncesto</label>
                 <input type="checkbox" name="check" value="baloncesto" id="baloncesto">
             </fieldset>
-            <button type="submit">Enviar</button>
+            <button type="submit" class="boton-defecto">Enviar</button>
         </form>
     </main>
     <footer>
