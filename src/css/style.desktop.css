@@ -117,20 +117,53 @@ form{
   }
   #mas-noticias{
     width:60%;
+    height: 100%;
     ol{
+        width: 100%;
+        height: 100%;
         display:flex;
         flex-direction: row;
-        justify-content: center;
-        gap:1em;
+        justify-content: space-around;
+        padding-top: 3%;
     }
   }
   #seccion-de-comentarios{
+    padding-top: 2%;
     display:flex;
     flex-direction: column;
-/*vamos por aqui caja de comentarios comentarios centro h2 alado*/
     width:60%;
+    height: 100%;
     ul{
         padding-top: 2%;
+        padding-bottom:2%;
+    }
+    ul>li{
+        justify-self: end;
+    }
+  }/*seguir tocando el flex para poner el formlario a la derecha*/
+  #formulario-comentario{
+    padding-top:2%;
+    width:100%;
+    height: 100%;
+    textarea{
+        width: 40%; 
+        height: 10em;
+      }
+    button{
+        font-family: "Tauri", sans-serif;
+        font-size: 100%;
+        font-weight: bold;
+        color:white;
+        height:30%;
+        width: 20%;
+        border-radius: 5px ;
+        background-image: linear-gradient(0deg, #f3004d 10%, #ff5900);
+        &:hover{
+          box-shadow: 2px 2px 2px 2px #ff5900;
+        }
+        &:active{
+          box-shadow: 2px 2px 2px 2px #f3004d;
+        }
     }
   }
 /*footer*/

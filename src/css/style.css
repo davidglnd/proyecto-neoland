@@ -52,9 +52,10 @@ body {
     
   }
   /*main*/
-  main{
+  /* main{
     text-align: center;
-  }
+  } */
+
   /*main index --> tabla*/
   caption{
     font-family: "Tauri", sans-serif;
@@ -64,6 +65,7 @@ body {
   }
   .tabla-noticias{
     border: 1px solid black;
+    text-align: center;
     tr{
       background-color: rgb(235, 138, 138);
       td{
@@ -190,11 +192,12 @@ body {
 .estilos-comunes{
   background:#c2bebe9d
 }
-#formulario-comentario>h1{
-  font-size: 1.1em;
-}
 #seccion-de-comentarios>h2{
   font-size: 1.5em;
+  text-align: left;
+}
+#seccion-de-comentarios>ul{
+  text-align: center;
 }
 #noticia1{
   h2:not(ol>h2,ul>h2){
@@ -207,6 +210,39 @@ body {
 }
 #agrupados{
   font-size: 0.8em;
+}
+#formulario-comentario{
+  box-sizing: border-box;
+  border: 1px solid #ff5900;
+  border-radius: 20px;
+  textarea{
+      font-size:100%;
+      text-align: center;
+      border-radius: 20px;
+      background: #baecfc;
+      /*background-color: #baecfc;*/
+      border: rgb(233, 87, 87) 2px dotted;
+      &:focus { 
+        outline: none; 
+        border:red 2px solid;
+      }
+    }
+  button{
+      font-family: "Tauri", sans-serif;
+      font-size: 100%;
+      font-weight: bold;
+      color:white;
+      height:30%;
+      width: 20%;
+      border-radius: 5px ;
+      background-image: linear-gradient(0deg, #f3004d 10%, #ff5900);
+      &:hover{
+        box-shadow: 2px 2px 2px 2px #ff5900;
+      }
+      &:active{
+        box-shadow: 2px 2px 2px 2px #f3004d;
+      }
+  }
 }
 /*Botones y utilidades que se repiten entre paginas*/
 .boton-defecto{
