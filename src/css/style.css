@@ -5,7 +5,7 @@ Hoja de estilos general de la pagina
 */
 html{
   background: linear-gradient(45deg, rgb(136, 163, 172) 25%, rgb(243, 161, 161) 75%,rgb(250, 250, 250));
-
+  height: 100;
 }
 body {
     font-family: "PT Sans Narrow", sans-serif;

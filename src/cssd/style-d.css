@@ -1,53 +1,73 @@
 /*Style para posicionamiento*/
-body{
-    &#inicio{ /*grid pagina index.html*/
-        display: grid;
-        grid-template-areas:
-        "head head"
-        "body-1 body-2"
-        "pie pie";
-        grid-template-columns: 4fr 3fr;
-        &>header{
-            grid-area: head;
-            width:100%;
+/*copiar de aqui hasta*/
+#inicio{ /*grid pagina index.html*/
+    display: grid;
+    grid-template-areas:
+    "head head"
+    "body-1 body-2"
+    "pie pie";
+    grid-template-columns: 4fr 3fr;
+    grid-template-rows: 20% 70% 10%;
+    height: 100%;
+    &>header{                                       /*header*/
+        grid-area: head;
+        width:100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+        &>h1{
+            width: 100%;
+            text-align: center;
+        }
+        &>nav{
+            width: 100%;
+            padding-top:15px;
+            padding-bottom: 15px;
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
+            justify-content: center;
             align-items: center;
-            &>nav>ul{
-                width:100%;
+            ul{
                 display:flex;
                 flex-direction: row;
-                align-items: center;
-                flex-wrap: wrap;
-                gap: 4em;
-
+                font-size: 1.5em;
+                gap: 1em;
             }
         }
-        &>main{
-            grid-area: body-1;
-            width:100%;
-            display:flex;
-            flex-direction: column;
-            align-items: center;
-            &>table{
 
-            }
+    }
+    &>main{                                             /*main*/
+        grid-area: body-1;
+        width: 100%;
+        display:flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        &>table{
+            min-width: 60%;
         }
-        &>aside{
-            width:100%;
-            grid-area: body-2;
-            display:flex;
-            display:flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        &>footer{
-            grid-area: pie;
-        }
+        
+    }
+    &>aside{                                            /*aside1*/
+        width:100%;
+        grid-area: body-2;
+        display:flex;
+        flex-direction: column;
     }
 
+    }
+footer{                                           /*footer*/
+    grid-area: pie;
+    &>ul{
+        width: 100%;
+        display:flex;
+        justify-content: center;
+        gap:3em;
+    }
 }
-header{
+/*hasta aqui*/
+/* header{
     border: red 2px solid;
     
 
@@ -63,4 +83,4 @@ aside{
 }
 footer{
     border:greenyellow 2px solid;
-}
+} */
