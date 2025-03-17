@@ -1,11 +1,65 @@
 /*Style para posicionamiento*/
+body{
+    &#inicio{ /*grid pagina index.html*/
+        display: grid;
+        grid-template-areas:
+        "head head"
+        "body-1 body-2"
+        "pie pie";
+        grid-template-columns: 4fr 3fr;
+        &>header{
+            grid-area: head;
+            width:100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            &>nav>ul{
+                width:100%;
+                display:flex;
+                flex-direction: row;
+                align-items: center;
+                flex-wrap: wrap;
+                gap: 4em;
+
+            }
+        }
+        &>main{
+            grid-area: body-1;
+            width:100%;
+            display:flex;
+            flex-direction: column;
+            align-items: center;
+            &>table{
+
+            }
+        }
+        &>aside{
+            width:100%;
+            grid-area: body-2;
+            display:flex;
+            display:flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        &>footer{
+            grid-area: pie;
+        }
+    }
+
+}
 header{
     border: red 2px solid;
+    
 
 }
 main{
     border:blue 2px solid;
+    
 
+}
+aside{
+    border:orange 2px solid;
+    
 }
 footer{
     border:greenyellow 2px solid;

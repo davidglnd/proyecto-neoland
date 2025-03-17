@@ -7,8 +7,9 @@
     <title>Pagina de inicio</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="../cssd/style-d.css">
+    <link rel="stylesheet" href="../cssd/style.css">
 </head>
-<body>
+<body id="inicio" >
     <header>
         <h1 id="cabezera">NOTICIAS DEPORTIVAS</h1>
         <nav>
@@ -20,14 +21,6 @@
         </nav>
     </header>
     <main id="index">
-        <div>
-            <h1 id="titulo-contenido">Listado de noticias</h1>
-            <ol><!--EMMET Te crea por ejemplo con ol>li*3 tres elementos de golpe y puedes rellenarlo con atributos-->
-                <li><a href="noticia.html">Noticia princpal</a></li>
-                <li><a href="noticia.html">2 noticia</a></li>
-                <li><a href="noticia.html">3 noticia</a></li>
-            </ol>
-        </div>
         <table  cellspacing="0" class="tabla-noticias">
             <caption>Listado de noticias tabla</caption>
             <thead>
@@ -72,6 +65,16 @@
             </tfoot>
         </table>
     </main>
+    <aside id="menu-lateral">
+        <div>
+            <h1 id="titulo-contenido">Listado de noticias</h1>
+            <ol><!--EMMET Te crea por ejemplo con ol>li*3 tres elementos de golpe y puedes rellenarlo con atributos-->
+                <li><a href="noticia.html">Noticia princpal</a></li>
+                <li><a href="noticia.html">2 noticia</a></li>
+                <li><a href="noticia.html">3 noticia</a></li>
+            </ol>
+        </div>
+    </aside>
     <footer>
         <ul>
             <li><a href="#">Politica de cookies</a></li>
