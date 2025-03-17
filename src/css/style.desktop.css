@@ -42,8 +42,8 @@ nav{
     gap:1em;
 }
 #index>table{
-    width:50%;
-    
+width:50%;
+
 }
 /*form*/
 form{
@@ -165,7 +165,7 @@ form{
         padding-top: 2%;
         
     }
-  }/*seguir tocando el flex para poner el formlario a la derecha*/
+  }
   /*arreglar codigo arriba en el form para que no le de estilos a este tambien*/
   #formulario-comentario{
     display:flex;

@@ -1,0 +1,12 @@
+/*Style para posicionamiento*/
+header{
+    border: red 2px solid;
+
+}
+main{
+    border:blue 2px solid;
+
+}
+footer{
+    border:greenyellow 2px solid;
+}
