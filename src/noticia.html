@@ -8,10 +8,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=PT+Sans+Narrow:wght@400;700&family=Roboto:ital,wght@0,100..900;1,100..900&family=Tauri&display=swap">
-    <link rel="stylesheet" href="old/style.css">
-    <link rel="stylesheet" href="old/style.desktop.css" media="screen and (min-width: 481px)">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.desktop.css" media="screen and (min-width: 481px)">
   </head>
-  <body>
+  <body id="noticia">
     <header>
         <h1 id="cabezera">Periodico</h1>
         <nav>
@@ -37,10 +37,22 @@
               los papeles de su superioridad, y ante Denis Shapovalov, por 6-2 y 6-4 en 83 minutos, ha logrado lo mismo pero ante un rival de superior talla
               Denis está actualmente en las cercanías del 'top 30', pero ha sido no hace tanto 'top 10', acaba de ganar un ATP 500 y para él 
               no es muy raro ganar a líderes del circuito. 
+              Hemos visto con cierta frecuencia que en ocasiones el mayor peligro para Carlos Alcaraz viene de sí mismo: 
+              que se complica partidos por entrar en pequeñas crisis cuando parece tener los partidos dominados. 
+              No le está pasando esto en Indian Wells. Ante Quentin Halys logró un triunfo casi administrativo, a base de presentar 
+              los papeles de su superioridad, y ante Denis Shapovalov, por 6-2 y 6-4 en 83 minutos, ha logrado lo mismo pero ante un rival de superior talla
+              Denis está actualmente en las cercanías del 'top 30', pero ha sido no hace tanto 'top 10', acaba de ganar un ATP 500 y para él 
+              no es muy raro ganar a líderes del circuito.
           </p>
           <p id="parrafo-secundario">
               Ante Carlos Alcaraz tuvo dos problemas: el primero, que no logró sacar bien: a su pobre porcentaje de primeros se sumaron nada menos que ocho 
               dobles faltas. 
+              Hemos visto con cierta frecuencia que en ocasiones el mayor peligro para Carlos Alcaraz viene de sí mismo: 
+              que se complica partidos por entrar en pequeñas crisis cuando parece tener los partidos dominados. 
+              No le está pasando esto en Indian Wells. Ante Quentin Halys logró un triunfo casi administrativo, a base de presentar 
+              los papeles de su superioridad, y ante Denis Shapovalov, por 6-2 y 6-4 en 83 minutos, ha logrado lo mismo pero ante un rival de superior talla
+              Denis está actualmente en las cercanías del 'top 30', pero ha sido no hace tanto 'top 10', acaba de ganar un ATP 500 y para él 
+              no es muy raro ganar a líderes del circuito.
               El seguro, que un Carlos muy serio y concentrado no le dejó espacios para la rebelión cuando conseguía entrar en juego.
           </p>
         </div>
@@ -49,32 +61,32 @@
             <p>11/03/24</p>
           </div>
       </article>
-      <aside id="mas-noticias" class="estilos-comunes">
-        <h2>Mas noticias:</h2>
-          <ol>
-              <li><a href="noticia.html" title="enlace a otra noticia"><img src="img/70x50.svg" alt="noticia 1" title="noticia 1"></a></li>
-              <li><a href="noticia.html" title="enlace a otra noticia"><img src="img/70x50.svg" alt="noticia 2" title="noticia 2"></a></li>
-              <li><a href="noticia.html" title="enlace a otra noticia"><img src="img/70x50.svg" alt="noticia 3" title="noticia 3"></a></li>
-              <li><a href="noticia.html" title="enlace a otra noticia"><img src="img/70x50.svg" alt="noticia 4" title="noticia 4"></a></li>
-        </ol>
-      </aside>
-      <aside id="seccion-de-comentarios" class="estilos-comunes">
-        <h2>Comentarios de la noticia:</h2>
-        <!--crear n contenedor aqi plisss para poner el text area y boton a la derecha  -->
-        <ul>
-          <li>Wow que partiazo de Arcaraz!!!</li>
-          <li>Lanzado a por el N1</li>
-          <li>Partidazo!!</li>
-          <li>Partidazo!!</li>
-          <li>Partidazo!!</li>
-          <li>Partidazo!!</li>
-        </ul>
-        <form action="nuevo-comentario" id="formulario-comentario">
-          <textarea placeholder="Escribe aqui tu comentario" name="comentario"></textarea>
-          <button>Comentar</button>
-        </form>
-      </aside>
     </main>
+    <aside id="mas-noticias" class="estilos-comunes">
+      <h2>Mas noticias:</h2>
+        <ol>
+            <li><a href="noticia.html" title="enlace a otra noticia"><img src="img/70x50.svg" alt="noticia 1" title="noticia 1"></a></li>
+            <li><a href="noticia.html" title="enlace a otra noticia"><img src="img/70x50.svg" alt="noticia 2" title="noticia 2"></a></li>
+            <li><a href="noticia.html" title="enlace a otra noticia"><img src="img/70x50.svg" alt="noticia 3" title="noticia 3"></a></li>
+            <li><a href="noticia.html" title="enlace a otra noticia"><img src="img/70x50.svg" alt="noticia 4" title="noticia 4"></a></li>
+      </ol>
+    </aside>
+    <aside id="seccion-de-comentarios" class="estilos-comunes">
+      <h2>Comentarios de la noticia:</h2>
+      <!--crear n contenedor aqi plisss para poner el text area y boton a la derecha  -->
+      <ul>
+        <li>Wow que partiazo de Arcaraz!!!</li>
+        <li>Lanzado a por el N1</li>
+        <li>Partidazo!!</li>
+        <li>Partidazo!!</li>
+        <li>Partidazo!!</li>
+        <li>Partidazo!!</li>
+      </ul>
+      <form action="nuevo-comentario" id="formulario-comentario">
+        <textarea placeholder="Escribe aqui tu comentario" name="comentario"></textarea>
+        <button>Comentar</button>
+      </form>
+    </aside>
     <footer>
         <ul>
             <li><a href="#">Politica de cookies</a></li>
