@@ -1,0 +1,309 @@
+/**
+Hoja de estilos Movil de la pagina
+--Disposicion de elementos
+--Ajustes de tipografia en el movil
+*/
+/*header*/
+/*Style para posicionamiento*/
+body{
+  min-height: 100vh;
+  font-size: 24px;
+}
+#inicio{ /*index.html*/
+  display: grid;
+  grid-template-areas:
+  "head head"
+  "body-1 body-2"
+  "pie pie";
+  grid-template-columns: 4fr 3fr;
+  grid-template-rows: 190.59px auto 47.64px;
+
+  &>header{                                       /*header*/
+      grid-area: head;
+      width:100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      flex-wrap: wrap;
+      &>h1{
+          width: 100%;
+          text-align: center;
+      }
+      &>nav{
+          width: 100%;
+          padding-top:15px;
+          padding-bottom: 15px;
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          ul{
+              display:flex;
+              flex-direction: row;
+              font-size: 1.5em;
+              gap: 1em;
+          }
+      }
+  
+  }
+  &>main{                                             /*main*/
+      grid-area: body-1;
+      width: 100%;
+      display:flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      &>table{
+          min-width: 60%;
+      }
+      
+  }
+  &>aside{                                            /*aside1*/
+      width:100%;
+      grid-area: body-2;
+      display:flex;
+      flex-direction: column;
+  }
+
+  }
+#formulario{ /*formulario.html*/
+  display: grid;
+  grid-template-areas:
+  "head"
+  "body"
+  "pie";
+  grid-template-columns: 1fr;
+  grid-template-rows: 190.59px auto 47.64px;
+  &>header{                                       /*header*/
+      grid-area: head;
+      width:100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      flex-wrap: wrap;
+      &>h1{
+          width: 100%;
+          text-align: center;
+      }
+      &>nav{
+          width: 100%;
+          padding-top:15px;
+          padding-bottom: 15px;
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          ul{
+              display:flex;
+              flex-direction: row;
+              font-size: 1.5em;
+              gap: 1em;
+          }
+      }
+  
+  }
+  &>main{
+      grid-area: body;
+      width:100%;
+      display:flex;
+      justify-content:center ;
+      &>form{
+          padding-bottom: 1%;
+          display:flex;
+          flex-direction: column;
+          flex-wrap: nowrap;
+          align-items: center;
+          width: 60%;
+          gap:0.5em;
+          legend{
+              padding-top: 10px;
+              padding-bottom: 10px;
+              text-decoration: underline;
+              font-size: 1.5em;
+          }
+          #primer-campo,#segundo-campo,#tercer-campo,#quinto-campo{
+              width:45%;
+              height: 180px;
+              display:flex;
+              flex-direction: column;
+              align-items: center;
+              padding-top:3%;
+          }
+          #cuarto-campo{
+              width:45%;
+              height: 100px;
+              display:flex;
+              flex-direction: column;
+              align-items: center;
+              padding-top:3%;
+          }
+          #sexto-campo{/*QQ*/
+              width:45%;
+              height: 100px;
+          }
+          #botonsubmit{
+              width:10%;
+              height: 35px;
+          }
+
+      }
+  }
+}
+#noticia{/*noticia*/
+  display:grid;
+  grid-template-areas:
+  "head"
+  "cuerpo"
+  "extra1"
+  "extra2"
+  "pie";
+  grid-template-rows: 190.59px auto 1fr 3fr 47.64px;
+  &>header{                                       /*header*/
+      grid-area: head;
+      width:100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      flex-wrap: wrap;
+      &>h1{
+          width: 100%;
+          text-align: center;
+      }
+      &>nav{
+          width: 100%;
+          padding-top:15px;
+          padding-bottom: 15px;
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          ul{
+              display:flex;
+              flex-direction: row;
+              font-size: 1.5em;
+              gap: 1em;
+          }
+      }
+  
+  }
+  #main-noticia{
+      grid-area: cuerpo;
+      display:flex;
+      flex-direction: column;
+      align-items: center;   
+      #noticia1{
+          width: 60%;
+      h1,h2{
+          justify-self: center;
+      }
+      figure{
+          padding-top: 2%;
+          width:100%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          img{
+              display:block;
+              width: 40%;
+          }
+      }
+      }
+      #parrafo-construido{
+              width: 100%;
+              display:flex;
+              flex-direction: row;
+              justify-content: center;
+              gap:2%;
+              padding-top: 2%;
+              #parrafo-principal{
+                  width: 40%;
+              }
+              #parrafo-secundario{
+                  width: 40%;
+              }
+          }
+          #agrupados{
+              padding-top: 2%;
+              justify-self: end;
+          }
+      }  
+  #mas-noticias{
+      grid-area: extra1;
+      width:60%;
+      justify-self: center;
+      ol{
+          display:flex;
+          flex-direction: row;
+          justify-content: space-around;
+          padding-top: 3%;
+      }
+    }
+    #seccion-de-comentarios{
+      width: 60%;
+      grid-area: extra2;
+      justify-self: center;
+      display:flex;
+      flex-direction: column;
+      padding-top: 3%;
+      &>div{
+          width:100%;
+          padding-top: 2%;;
+          display:flex;
+          flex-direction: row;
+          justify-content: space-around;
+          ul{
+              width: 30%;
+          }
+          #formulario-comentario{
+              width: 50%;
+              padding-top: 2%;
+              padding-bottom: 2%;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              textarea{
+                  width: 80%; 
+                  height: 5em;
+              }
+              button{
+                  font-family: "Tauri", sans-serif;
+                  font-size: 100%;
+                  font-weight: bold;
+                  color:white;
+                  width: 40%;
+                  border-radius: 5px ;
+                  background-image: linear-gradient(0deg, #f3004d 10%, #ff5900);
+                  &:hover{
+                    box-shadow: 2px 2px 2px 2px #ff5900;
+                  }
+                  &:active{
+                    box-shadow: 2px 2px 2px 2px #f3004d;
+                  }
+              }
+          }
+      }
+    }
+}
+/*Botones que se repiten entre paginas*/
+.boton-defecto{
+  font-family: "Tauri", sans-serif;
+  font-size: 1em;
+  font-weight: bold;
+  color:white;
+  height:30%;
+  width: 10%;
+  border-radius: 5px ;
+  background-image: linear-gradient(0deg, #f3004d 10%, #ff5900);
+  &:hover{
+    box-shadow: 2px 2px 2px 2px #ff5900;
+  }
+  &:active{
+    box-shadow: 2px 2px 2px 2px #f3004d;
+  }
+}
+footer{                                           /*footer*/
+  grid-area: pie;
+  &>ul{
+      width: 100%;
+      display:flex;
+      justify-content: center;
+      gap:3em;
+  }
+}
