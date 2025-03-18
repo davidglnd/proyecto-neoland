@@ -11,6 +11,40 @@
     <title>Pokedex</title>
 </head>
 <body>
-    
+    <header>
+        <nav>
+            <menu id="menu">
+                <li><a href="/readme.md">Inicio</a></li>
+                <li><a href="/readme.md">Pokedex</a></li>
+                <li><a href="/readme.md">Videojuego y aplicaciones</a></li>
+                <li><a href="/readme.md">Juegos de cartas coleccionables</a></li>
+                <li><a href="/readme.md">Dibujos animados</a></li>
+                <li><a href="/readme.md">Eventos de Play! Pokemon</a></li>
+                <li><a href="/readme.md">Noticias</a></li>
+            </menu>
+        </nav>
+        <h1>Pokedex</h1>
+    </header>
+    <main>
+        <form action="/">
+            <legend>Busca por nombre o Nºpokedex</legend>
+            <input type="text" name="buscador" id="input-buscador">
+            <button id="botonbusqueda">Buscar</button>
+            <p id="indicaciones">¡Usa la busqueda avanzada para encontrar Pokémon por su tipo, debilidad y demas datos!</p>
+        </form>
+        <ol>
+            <li class="caja-pokemon">
+                <figure id="pokemon">
+                    <img src="img/001.png" alt="pokemon">
+                    <p>Nºpokedex</p>
+                    <h5>Nombre pokemon</h5>
+                    <div class="tipos">
+                        <span class="tag grass">Tipo 1</span>
+                        <span class="tag poison">Tipo 2</span>
+                    </div>
+                </figure>
+            </li>
+        </ol>
+    </main>
 </body>
 </html>

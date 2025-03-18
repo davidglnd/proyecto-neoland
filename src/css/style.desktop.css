@@ -1,0 +1,173 @@
+/**
+ HOJA DE ESTILOS PARA ESCRITORIO (min-width: 481px)
+ - DISPOSICIÓN
+ */
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    row-gap:20px;
+    max-width: 1024px;
+    margin:0 auto;
+    
+    header{
+        width: 100%;
+        nav>menu{
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+            height: 90px;
+            li{
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                width:calc(100% / 7 );
+                a{
+                    display: inline-flex;
+                    width:100%;
+                    height: 100%;
+                    justify-content: center;
+                    text-align: center;
+                    align-items: center;
+                }
+            }
+
+        }
+        h1{
+            width:100%;
+            padding-top: 1%;
+        }
+    }
+    main{
+        display: flex;
+        flex-direction: column;
+        form{
+            display:flex;
+            flex-direction: row;
+            align-items: center;
+            column-gap: 30px;        
+            margin: 0 -112px;/* Uso un margen negativo para salirme del main */      
+            padding: 20px 300px;/* en el padding hay que poner una cantidad teniendo en cuenta los 112px negativos del margin */
+            #input-buscador{
+                height: 40px ;
+            }
+        }
+        ol{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content:space-around;
+            column-gap:2%;
+            row-gap: 30px;
+            padding-top: 2%;
+            .caja-pokemon{
+                width:20%;
+                img:hover{
+                    animation: pulse 1s infinite ease-in-out alternate;
+                }
+                span:hover{
+                    animation: pulse 1s infinite ease-in-out alternate;
+                }
+                #pokemon{
+                    display: flex;
+                    flex-direction: column;
+                    flex-wrap: wrap;
+                    img{
+                        width: 100px;
+                        height: 100px;
+                    }
+                }
+            }
+
+        }
+    }
+}
+/*animaciones*/
+@keyframes pulse {
+    from { transform: scale(1); }
+    to { transform: scale(1.2); }
+  }
+/*colores de los tipos*/
+.tipos {
+    display: flex;
+    column-gap: 10px;
+  
+    .tag {
+      border-radius: 5px;
+      line-height: 2em;
+      text-align: center;
+      padding: 0 1em;
+  
+      &:has(+ .tag),
+      &+.tag {
+        flex-grow: 1;
+        padding: 0;
+      }
+  
+      &.grass {
+        background-color: #9bcc50;
+      }
+      &.poison {
+        background-color: #b97fc9;
+        color: white;
+      }
+      &.bug {
+        background-color: #729f3f;
+        color: white;
+      }
+      &.normal {
+        background-color: #a4acaf;
+        color: white;
+      }
+      &.flying {
+        background: linear-gradient(180deg, #3dc7ef 50%, #bdb9b8 50%);
+      }
+      &.ground {
+        background: linear-gradient(180deg, #f7de3f 50%, #ab9842 50%);
+      }
+      &.water {
+        background-color: #4592c4;
+        color: white;
+      }
+      &.electric {
+        background-color: #eed535;
+      }
+      &.steel {
+        background-color: #9eb7b8;
+      }
+      &.ice {
+        background-color: #51c4e7;
+      }
+      &.psychic {
+        background-color: #f366b9;
+        color: white;
+      }
+      &.fighting {
+        background-color: #d56723;
+        color: white;
+      }
+      &.rock {
+        background-color: #a38c21;
+        color: white;
+      }
+      &.fairy {
+        background-color: #fdb9e9;
+      }
+      &.fire {
+        background-color: #fd7d24;
+        color: white;
+      }
+      &.dragon {
+        background: linear-gradient(180deg, #53a4cf 50%, #f16e57 50%);
+        color: white;
+      }
+      &.dark {
+        background-color: #707070;
+        color: white;
+      }
+      &.ghost {
+        background-color: #7b62a3;
+        color: white;
+      }
+    }
+  }

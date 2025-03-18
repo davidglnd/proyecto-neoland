@@ -1,0 +1,159 @@
+html{
+    --color-fondo1:rgb(255, 222, 222);
+    --color-fondo2:rgb(43, 29, 29);
+    background-color: var(--color-fondo2);
+    font-family: sans-serif;
+    font-size: 18px;
+    body{
+        background-color:var(--color-fondo1);
+        min-height: 100vh;
+    }
+    header{
+        background-color:var(--color-fondo1);
+        nav{
+            #menu{
+                li {
+                    &:nth-child(1){    
+                        a{
+                            text-decoration: none;
+                            background-color: white;
+                            color: rgb(49, 29, 29);
+                            border-bottom:5px solid rgb(92, 92, 92);
+                            &:hover{
+                                background-color:rgb(92, 92, 92);
+                                border-bottom:5px solid white;
+                                color: rgb(255, 255, 255);
+                            }
+                        }    
+                    }
+                    &:nth-child(2){    
+                        a{
+                            text-decoration: none;
+                            background-color: white;
+                            color: rgb(49, 29, 29);
+                            border-bottom:5px solid rgb(214, 49, 49);
+                            &:hover{
+                                background-color:rgb(214, 49, 49);
+                                border-bottom:5px solid white;
+                                color: rgb(255, 255, 255);
+                            }
+                        }    
+                    }
+                    &:nth-child(4){    
+                        a{
+                            text-decoration: none;
+                            background-color: white;
+                            color: rgb(49, 29, 29);
+                            border-bottom:5px solid rgb(252, 98, 42);
+                            &:hover{
+                                background-color:rgb(252, 98, 42);
+                                border-bottom:5px solid white;
+                                color: white;
+                            }
+                        }    
+                    }
+                    &:nth-child(3){    
+                        a{
+                            text-decoration: none;
+                            background-color: white;
+                            color: rgb(49, 29, 29);
+                            border-bottom:5px solid yellow;
+                            &:hover{
+                                background-color:yellow;
+                                border-bottom:5px solid black;
+                                color: black;
+                            }
+                        }    
+                    }
+                    &:nth-child(5){    
+                        a{
+                            text-decoration: none;
+                            background-color: white;
+                            color: rgb(49, 29, 29);
+                            border-bottom:5px solid green;
+                            &:hover{
+                                background-color:green;
+                                border-bottom:5px solid white;
+                                color: white;
+                            }
+                        }    
+                    }
+                    &:nth-child(6){    
+                        a{
+                            text-decoration: none;
+                            background-color: white;
+                            color: rgb(49, 29, 29);
+                            border-bottom:5px solid aquamarine;
+                            &:hover{
+                                background-color:aquamarine;
+                                border-bottom:5px solid black;
+                                color: black;
+                            }
+                        }    
+                    }
+                    &:nth-child(7){    
+                        a{
+                            text-decoration: none;
+                            background-color: white;
+                            color: rgb(49, 29, 29);
+                            border-bottom:5px solid rgb(52, 52, 224);
+                            &:hover{
+                                background-color:rgb(52, 52, 224);
+                                border-bottom:5px solid white;
+                                color: white;
+                            }
+                        }    
+                    }
+
+                }
+            }
+
+        }
+
+    
+        h1{
+            color:rgb(143, 3, 3);
+            font-size: 2em;
+        }
+    }
+    main{
+        form{
+            background-color:var(--color-fondo2);
+            color: white;
+            legend{
+                line-height: 1.2em;
+            }
+            #input-buscador{
+                border:2px grey solid;
+                border-radius: 25px;
+            }
+            #indicaciones{
+                background-color: darkgreen ;
+                border-radius: 5px;
+                color:white;
+                padding: 10px;
+                border: greenyellow 2px solid;
+            }
+            #botonbusqueda{
+                font-size: 100%;
+                font-weight: bold;
+                color:white;
+                border-radius: 5px ;
+                background-image: linear-gradient(0deg, #f3004d 10%, #ff5900);
+                &:hover{
+                  box-shadow: 0.5px 0.5px 0.5px 0.5px #ff5900;
+                }
+                &:active{
+                  box-shadow: 2px 2px 2px 2px #f3004d;
+                }
+              }
+        }
+        ol{
+            .caja-pokemon{
+                border:2px rgb(112, 112, 112) solid;
+                background-color: white;
+                border-radius:5px;
+            }
+        }
+    }
+}
