@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -9,10 +10,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=PT+Sans+Narrow:wght@400;700&family=Roboto:ital,wght@0,100..900;1,100..900&family=Tauri&display=swap">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/styles.mobile.css" media="screen and (max-width: 480px)">
-    <link rel="stylesheet" href="css/style.desktop.css" media="screen and (min-width: 481px)">
+    <link rel="stylesheet" href="css/style.desktop.css">
 </head>
-<body>
+<body id="inicio" >
     <header>
         <h1 id="cabezera">NOTICIAS DEPORTIVAS</h1>
         <nav>
@@ -24,16 +24,8 @@
         </nav>
     </header>
     <main id="index">
-        <div>
-            <h1 id="titulo-contenido">Listado de noticias</h1>
-            <ol><!--EMMET Te crea por ejemplo con ol>li*3 tres elementos de golpe y puedes rellenarlo con atributos-->
-                <li><a href="noticia.html">Noticia princpal</a></li>
-                <li><a href="noticia.html">2 noticia</a></li>
-                <li><a href="noticia.html">3 noticia</a></li>
-            </ol>
-        </div>
         <table  cellspacing="0" class="tabla-noticias">
-            <caption>Listado de noticias tabla</caption>
+            <caption>Noticias mas vistas del mes</caption>
             <thead>
                 <tr>
                     <th></th>
@@ -76,6 +68,14 @@
             </tfoot>
         </table>
     </main>
+    <aside id="listado-lateral">
+            <h1 id="titulo-contenido">Listado de noticias</h1>
+            <ol><!--EMMET Te crea por ejemplo con ol>li*3 tres elementos de golpe y puedes rellenarlo con atributos-->
+                <li><a href="noticia.html">Noticia princpal</a></li>
+                <li><a href="noticia.html">2 noticia</a></li>
+                <li><a href="noticia.html">3 noticia</a></li>
+            </ol>
+    </aside>
     <footer>
         <ul>
             <li><a href="#">Politica de cookies</a></li>

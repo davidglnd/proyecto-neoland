@@ -1,363 +1,188 @@
-/**
-Hoja de estilos general de la pagina
---Tipografias
---Colores
-*/
-html{
-  background: linear-gradient(45deg, rgb(136, 163, 172) 25%, rgb(243, 161, 161) 75%,rgb(250, 250, 250));
-  height: 100;
+/*Style para posicionamiento*/
+/*copiar de aqui hasta*/
+body{
+    min-height: 100vh;
+    font-size: 24px;
 }
-body {
-    font-family: "PT Sans Narrow", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-    font-variation-settings: "wdth" 100;
-    line-height: 1.3em;
-}
-    h1,
-    h2,
-    h3,
-    h4,
-    h4,
-    h6 {
-    font-family: "Tauri", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-    line-height: 1.3em;
-    letter-spacing: -3px;
+#inicio{ /*index.html*/
+    display: grid;
+    grid-template-areas:
+    "head head"
+    "body-1 body-2"
+    "pie pie";
+    grid-template-columns: 4fr 3fr;
+    grid-template-rows: 190.59px auto 47.64px;
+
+    &>header{                                       /*header*/
+        grid-area: head;
+        width:100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+        &>h1{
+            width: 100%;
+            text-align: center;
+        }
+        &>nav{
+            width: 100%;
+            padding-top:15px;
+            padding-bottom: 15px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            ul{
+                display:flex;
+                flex-direction: row;
+                font-size: 1.5em;
+                gap: 1em;
+            }
+        }
+    
     }
-    h1 { font-size: 2em; }
-    h2 { font-size: 1em; }
-    h3 { font-size: 0.5em; }
-
-  /*Header*/
-  header>h1{
-    font-size: 2em;
-    background: rgb(255,255,255);
-    background: linear-gradient(0deg, rgb(160, 14, 14) 34%, rgb(250, 149, 149) 57%, rgb(255, 72, 0) 100%);
-    background-clip: text;
-    color: rgb(0 0 0 / 20%);
-    text-align: center;
-    border-bottom: black 20px solid;
-    border-top:black 20px solid;
-  }
-  nav{
-    text-align: center;
-    a:hover{/*la regla dice que el ortden es :link :visited :hover :active*/
-
-      color:red;
+    &>main{                                             /*main*/
+        grid-area: body-1;
+        width: 100%;
+        display:flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        &>table{
+            min-width: 60%;
+        }
+        
     }
-
-  }
-  /*main*/
-  /* main{
-    text-align: center;
-  } */
-
-  /*main index --> tabla*/
-  caption{
-    font-family: "Tauri", sans-serif;
-    font-style: normal;
-    text-align: end;
-    font-size: 1em;
-  }
-  .tabla-noticias{
-    border: 1px solid black;
-    text-align: center;
-    tr{
-      background-color: rgb(235, 138, 138);
-      td{
-      vertical-align: middle;
-      }
-      &:nth-child(even) {
-        background-color: #96d8ee;
-      }
-    }
-    tfoot>td{
-      background-color: rgb(238, 78, 78);
+    &>aside{                                            /*aside1*/
+        width:100%;
+        grid-area: body-2;
+        display:flex;
+        flex-direction: column;
     }
 
-    tr>th{
-      background-color: rgb(238, 78, 78);
     }
-  }
-    tfoot>tr>td,
-    thead>tr>th
-    {
-    font-family: "Caveat", cursive;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-    font-weight: bold;
-    border: 1px solid black;
-  }
+#formulario{ /*formulario.html*/
+    display: grid;
+    grid-template-areas:
+    "head"
+    "body"
+    "pie";
+    grid-template-columns: 1fr;
+    grid-template-rows: 190.59px auto 47.64px;
+    &>header{                                       /*header*/
+        grid-area: head;
+        width:100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+        &>h1{
+            width: 100%;
+            text-align: center;
+        }
+        &>nav{
+            width: 100%;
+            padding-top:15px;
+            padding-bottom: 15px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            ul{
+                display:flex;
+                flex-direction: row;
+                font-size: 1.5em;
+                gap: 1em;
+            }
+        }
+    
+    }
+    &>main{
+        grid-area: body;
+        width:100%;
+        display:flex;
+        justify-content:center ;
+        &>form{
+            padding-bottom: 1%;
+            display:flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            align-items: center;
+            width: 60%;
+            gap:0.5em;
+            legend{
+                padding-top: 10px;
+                padding-bottom: 10px;
+                text-decoration: underline;
+                font-size: 1.5em;
+            }
+            #primer-campo,#segundo-campo,#tercer-campo,#quinto-campo{
+                width:45%;
+                height: 180px;
+                display:flex;
+                flex-direction: column;
+                align-items: center;
+                padding-top:3%;
+            }
+            #cuarto-campo{
+                width:45%;
+                height: 100px;
+                display:flex;
+                flex-direction: column;
+                align-items: center;
+                padding-top:3%;
+            }
+            #sexto-campo{/*QQ*/
+                width:45%;
+                height: 100px;
+            }
+            #botonsubmit{
+                width:10%;
+                height: 35px;
+            }
 
-  tbody>tr>td{
-    font-family: "Tauri", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-    border: 1px solid black;
-
-  }
-  tbody>tr>td>a>img{
-    border-radius: 50px;
-    max-width: 100%;
-    &:hover{
-        border-radius: 0px;
-
+        }
     }
-  }
-
-
-/*formulario*/
-#formulario-registro{
-  background-color: rgb(235, 138, 138);
-  fieldset{
-    border: 2px dashed black;
-    background: linear-gradient(45deg, rgb(136, 163, 172) 25%, rgb(243, 161, 161) 75%,rgb(250, 250, 250));
-    &:hover{
-      border:2px dashed #baecfc;
-    }
-  }
-  /**inputs*/
-  input{
-    font-size:1em;
-    text-align: center;
-    border-radius: 20px;
-    background: #baecfc;
-    /*background-color: #baecfc;*/
-    border: rgb(233, 87, 87) 2px dotted;
-    &:hover{
-      border: rgb(233, 87, 87) 2px solid;
-    }
-    &:focus {
-      outline: none;
-      border:red 2px solid;
-    }
-
-  }
-  input:invalid{
-    background-color: rgb(255, 255, 0);
-    border: transparent 2px solid;
-    color:red;
-    &:hover{
-      border: red 2px solid;
-    }
-    &:focus {
-      outline: none;
-    }
-  }
-  input::placeholder{
-    font-family: "Tauri", sans-serif;
-    color:#000000;
-  }
-  textarea{
-    font-size:1em;
-    text-align: center;
-    border-radius: 20px;
-    background-color: #baecfc;
-    border: rgb(233, 87, 87) 3px dotted;
-    &:focus {
-      outline: none;
-      border:rgb(233, 87, 87) 3px solid;
-    }
-
-  }
-  select{
-    font-size:0.75em;
-    border-radius: 20px;
-    background-color: #baecfc;
-    border: rgb(233, 87, 87) 3px dotted;
-    &:focus {
-      outline:none;
-      border:rgb(233, 87, 87) 3px solid;
-    }
-  }
-}
-/*Noticias*/
-#parrafo-construido{
-  color: rgb(92, 16, 16);
-}
-#parrafo-principal{
-  text-align:left;
-  &::first-letter{
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: rgb(59, 0, 0);
-  }
-}
-.estilos-comunes{
-  background:#bdb6b69d
-}
-#seccion-de-comentarios>h2{
-  font-size: 1.5em;
-  /* text-align: left; */
-}
-/* #seccion-de-comentarios>ul{
-  text-align: center;
-} */
-#noticia1{
-  h2:not(ol>h2,ul>h2){
-    color:#8f6a6a
-  }
-  figcaption{
-    font-size: 0.8em;
-}
-}
-#agrupados{
-  font-size: 0.8em;
-}
-#formulario-comentario{ /*arreglar codigo arriba en el form para que no le de estilos a este tambien*/
-  box-sizing: border-box;
-  border: 1px solid #ff5900;
-  background: linear-gradient(45deg, rgb(255, 255, 255) 25%, rgb(243, 161, 161) 75%,rgb(250, 250, 250));
-  border-radius: 20px;
-  textarea{
-      font-size:100%;
-      text-align: center;
-      border-radius: 20px;
-      background: #baecfc;
-      /*background-color: #baecfc;*/
-      border: rgb(233, 87, 87) 2px dotted;
-      &:focus {
-        outline: none;
-        border:red 2px solid;
-      }
-    }
-  /* button{
-      font-family: "Tauri", sans-serif;
-      font-size: 100%;
-      font-weight: bold;
-      color:white;
-      border-radius: 5px ;
-      background-image: linear-gradient(0deg, #f3004d 10%, #ff5900);
-      &:hover{
-        box-shadow: 2px 2px 2px 2px #ff5900;
-      }
-      &:active{
-        box-shadow: 2px 2px 2px 2px #f3004d;
-      }
-  } */
-}
-/*Botones y utilidades que se repiten entre paginas*/
+}/*QUEDA HACER LA NOTICIA*/
+/*Botones que se repiten entre paginas*/
 .boton-defecto{
-  font-family: "Tauri", sans-serif;
-  font-size: 1em;
-  font-weight: bold;
-  color:white;
-  height:30%;
-  width: 10%;
-  border-radius: 5px ;
-  background-image: linear-gradient(0deg, #f3004d 10%, #ff5900);
-  &:hover{
-    box-shadow: 2px 2px 2px 2px #ff5900;
-  }
-  &:active{
-    box-shadow: 2px 2px 2px 2px #f3004d;
-  }
-}
-/*Footer*/
-footer{
-  background-color: rgb(197, 158, 158);
-}
-footer>ul>li>a{
-font-size: 0.7em;
-border:1px solid transparent;
-&:hover{
-  border:2px solid black;
-}
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-h1{
+    font-family: "Tauri", sans-serif;
+    font-size: 1em;
     font-weight: bold;
+    color:white;
+    height:30%;
+    width: 10%;
+    border-radius: 5px ;
+    background-image: linear-gradient(0deg, #f3004d 10%, #ff5900);
+    &:hover{
+      box-shadow: 2px 2px 2px 2px #ff5900;
+    }
+    &:active{
+      box-shadow: 2px 2px 2px 2px #f3004d;
+    }
+  }
+footer{                                           /*footer*/
+    grid-area: pie;
+    &>ul{
+        width: 100%;
+        display:flex;
+        justify-content: center;
+        gap:3em;
+    }
+}
+/*hasta aqui*/
+/* header{
+    border: red 2px solid;
+    
 
 }
-ol>li>a{
-    color: red;
+main{
+    border:blue 2px solid;
+    
+
 }
-table{
-    background-color: aqua;
-    th{
-        text-transform: uppercase;
-    }
-    thead{
-        background-color: green;
-    }
-    tbody{
-        background-color: violet;
-    }
+aside{
+    border:orange 2px solid;
+    
 }
-input:invalid{
-    background-color: ivory;
-    outline: 2px solid red;
-}
-legend{
-    font-size: 30px;
-}
-textarea{
-    display: block;
-}
-caption{
-    background-color: rgb(167, 42, 42);
-    color:rgb(45, 45, 182);
-    font-size: 40px;
-}
-*/
+footer{
+    border:greenyellow 2px solid;
+} */
