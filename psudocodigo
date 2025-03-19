@@ -1,0 +1,29 @@
+INPUT: pides información al usuario
+SET: guardas información en una variable
+PRINT: muestras un valor o mensaje en la pantalla
+READ: lees un archivo o documento
+DISPLAY: muestras una ventana nueva
+SHOW / HIDE: muestras u ocultas un elemento de interfaz
+CALCULATE: realiza un cálculo
+IF-ELSE: ejecuta una acción si se cumple una condición (o en el caso de que no se cumpla)
+CASE: realiza acciones a partir de una lista de preguntas sobre un mismo valor
+FOR: realiza acciones sobre una lista de elementos, o a partir de ellos
+WHILE: realiza acciones mientras se cumpla una condición
+DO-WHILE / REPEAT-UNTIL: realiza una acción, y luego continúa haciéndolo mientras se cumpla una condición (o deje de cumplirse)
+
+## Tarea buscar y mostrar pokemon
+
+# Lenguaje comun
+1.Escribo en el buscador el nombre o numero y pulso el boton
+2.El JS busca en la base de datos el valor
+3.Si el valor coincide mostramos pokemon o pokemones coincidentes
+4.Si el valor no coincide con ningun dato de nuestra base de datos limpiamos 
+la tabla y mostramos el mensaje "No coincide con ningun pokemon"
+
+# Pseudocodigo
+1. SET  busqueda = INPUT nombre o nº pokemon
+2. IF busqueda = algun valor de la BBDD
+2.1 PRINT Lista con valores coincidentes
+2.2 ELSE PRINT "No se encuentra pokemon"
+
+
