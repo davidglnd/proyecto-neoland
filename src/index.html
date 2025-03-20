@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/style.desktop.css" media="screen and (min-width: 481px)">
     <link rel="stylesheet" href="css/style.mobile.css" media="screen and (max-width: 481px)">
-    <script src="js/pokemon.js" defer></script>
+    <script src="js/pokemon.js" type="module" defer></script>
     <title>Pokedex</title>
 </head>
 <body>
@@ -25,15 +25,15 @@
         </nav>
         <h1>Pokedex</h1>
     </header>
-    <main>
-        <form action="/">
+    <main class="main-pokedex">
+        <form>
             <legend>Busca por nombre o Nºpokedex</legend>
             <input type="text" name="buscador" id="input-buscador">
-            <button id="botonbusqueda">Buscar</button>
+            <button type="button" id="botonbusqueda">Buscar</button>
             <p id="indicaciones">¡Usa la busqueda avanzada para encontrar Pokémon por su tipo, debilidad y demas datos!</p>
         </form>
-        <ol>
-            <li class="caja-pokemon">
+        <ol class="lista-pokemons">
+            <!-- <li class="caja-pokemon">
                 <figure id="pokemon">
                     <img src="img/001.png" alt="pokemon">
                     <p>Nºpokedex</p>
@@ -43,7 +43,7 @@
                         <span class="tag poison">Tipo 2</span>
                     </div>
                 </figure>
-            </li>
+            </li> -->
         </ol>
     </main>
 </body>
