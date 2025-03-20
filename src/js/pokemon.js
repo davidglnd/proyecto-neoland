@@ -99,6 +99,7 @@ function leerListaPokemons() {
     
 }
 
+
 /**
  * Busca un pokemon en la pokedex y lo pinta en la interfaz
  * 
@@ -111,11 +112,12 @@ function leerListaPokemons() {
 function encontrarPokemon() {
     // Definimos variables
     let campoBusqueda = document.getElementById('input-buscador')
-    let dondeNuevaLista = document.getElementsByClassName('main-pokedex')[0] //variable con el main que es donde vamos a pintar el pokemon
-
-    for (let i = 0; i < pokedex.length; i++) {//preguntar el tema de ===
-        if (pokedex[i].name.english.toLowerCase() === campoBusqueda.value || pokedex[i].id == campoBusqueda.value){//este if verifica si el nombre o el id esta dentro de la pokedex
-            let idPokemon = String (pokedex[i].id)// id del pokemon para esta vuelta del bucle
+    let dondeNuevaLista = document.getElementsByClassName('main-pokedex')[0] //VAR con el main que es donde vamos a pintar el pokemon
+    let idPokemon  
+    for (let i = 0; i < pokedex.length; i++) {
+        let stringPokedexId = String(pokedex[i].id)
+        if (pokedex[i].name.english.toLowerCase() === campoBusqueda.value || stringPokedexId === campoBusqueda.value){//este if verifica si el nombre o el id esta dentro de la pokedex
+            idPokemon = String (pokedex[i].id)// id del pokemon para esta vuelta del bucle
             //consolelog para comprobar el parametro
             console.log('Buscas a ' + pokedex[i].name.english + ' con Nº de pokedex ' + pokedex[i].id)
 
@@ -146,7 +148,6 @@ function encontrarPokemon() {
             imagenPokemon.setAttribute('src', '../pokedex/images/' + idPokemon.padStart(3, '0') + '.png')
             imagenPokemon.setAttribute('alt',  pokedex[i].name.english)
             imagenPokemon.setAttribute('title', pokedex[i].name.english)
-            imagenPokemon.setAttribute('loading', 'lazy')
             pokemon.appendChild(imagenPokemon)
 
             let nombrePokemon = document.createElement('h5')
@@ -177,18 +178,21 @@ function encontrarPokemon() {
                 tipo2.textContent = pokedex[i].type[1]
                 tipo2.classList ='tag ' + pokedex[i].type[1].toLowerCase()
                 tipos.appendChild(tipo2)
-                }
-        } 
+            }
+        }
+        
     }
+    if(idPokemon === undefined){
+        //definimos la variable con el elemento a borrar
+        let listaPokemonsBorrar = document.getElementsByClassName('lista-pokemons')[0]
+        listaPokemonsBorrar.parentNode.removeChild(listaPokemonsBorrar)
 
-
-
-
-
-    //console.log('buscando pokemon... He encontrado ', pokedex)
-    //comprobando el tipo de value que obtenemos
-    //(es input type text asi que esta claro que va a ser string)
-    //console.log('estoy buscando ', typeof(campoBusqueda.value)) 
+        //empezamos a pintar de 0 el ol 
+        let crearNuevaLista = document.createElement('ol')
+        crearNuevaLista.setAttribute('class','lista-pokemons')
+        dondeNuevaLista.appendChild(crearNuevaLista)
+        leerListaPokemons()
+    }
 }
 //trabajao por hacer 
 //restricciones de busqueda en buscarPokemon() y funcionalidades (como buscar pokemon con minusculas (listo) o que salgan varios pokemon)
