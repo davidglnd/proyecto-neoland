@@ -1,4 +1,20 @@
-// 3. READ base de datos
+        //imagenPokemon.setAttribute('src', '../pokedex/images/00' + pokedex[i].id + '.png')
+        //esa linea es a que pone el atributo a la imagen teniendo en cuenta el nombre de la foto depende del id
+        //pero los nombres de las fotos en la carpeta empiezan por 00 por lo tanto si es menos de 10 ponemos dos 0 antes del id del pokemon
+        //si es mayor 1 0 y si es mayor de 100 se pone el id ya que corresponde con el nombre de la foto
+
+        let imagenPokemon = document.createElement('img')
+        if (pokedex[i].id < 10) {
+            imagenPokemon.setAttribute('src', '../pokedex/images/00' + pokedex[i].id + '.png')
+        }
+        if (pokedex[i].id >= 10 && pokedex[i].id < 100) {
+            imagenPokemon.setAttribute('src', '../pokedex/images/0' + pokedex[i].id + '.png')
+        }
+        if (pokedex[i].id >= 100) {
+            imagenPokemon.setAttribute('src', '../pokedex/images/' + pokedex[i].id + '.png')
+        }
+    ///////////////////////////////////////////////////////////////////////////////////////////// texto funcional
+    // 3. READ base de datos
 import pokedex from '../pokedex/pokedex.json' with { type: "json" }
 
 window.addEventListener("DOMContentLoaded", onDOMContentLoaded)
