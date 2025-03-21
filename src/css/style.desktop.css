@@ -59,12 +59,10 @@ body{
             justify-content:space-around;
             column-gap:2%;
             row-gap: 30px;
-            padding-top: 2%;
+            padding-top: 3%;
+            padding-bottom: 3%;
             .caja-pokemon{
                 width:20%;
-                img:hover{
-                    animation: pulse 1s infinite ease-in-out alternate;
-                }
                 span:hover{
                     animation: pulse 1s infinite ease-in-out alternate;
                 }
@@ -72,10 +70,20 @@ body{
                     display: flex;
                     flex-direction: column;
                     flex-wrap: wrap;
+                    align-items: center;
+                    width: 100%;
+                    gap:10px;
                     img{
-                        width: 100px;
-                        height: 100px;
+                        width: 120px;
+                        height: 120px;
+                        &:hover{
+                          animation: pulse 1s infinite ease-in-out alternate;
+                        }
                     }
+                    div{
+                      width:100%
+                    }
+
                 }
             }
 
@@ -90,6 +98,8 @@ body{
 /*colores de los tipos*/
 .tipos {
     display: flex;
+    flex-direction: row;
+    justify-content: center;
     column-gap: 10px;
   
     .tag {

@@ -9,193 +9,141 @@ window.addEventListener("DOMContentLoaded", onDOMContentLoaded)
  * @listens DOMContentLoaded
  */
 function onDOMContentLoaded() {
-    let botonBusqueda = document.getElementById('botonbusqueda')
-    // Asigno los eventos que se observan a partir de que cargue la página
- 
-    // 2. CLICK en botón de submit
-    botonBusqueda.addEventListener('click', encontrarPokemon)
+    let formulario = document.getElementById('formulario')
+    let botonBuscar = document.getElementById('botonbusqueda')
+     // Asigno los eventos que se observan a partir de que cargue la página
+    formulario.addEventListener('submit', encontrarPokemon)
+    botonBuscar.addEventListener('click', () => console.log('Boton buscar'))
 
     // Leo la lista de pokemons y pinto el HTML
-    leerListaPokemons()
+    leerListaPokemons(12)
 }
 
-/**
- * Lee la lista de pokemons y pinta el HTML
- * 
- * @description
- *  Lee la lista de pokemons y pinta el HTML, el cual se mostrará en el contenedor
- *  con el id "lista-pokemons".
- *  Crea un nuevo "li" por cada pokemon y a su vez dentro de cada "li" crea un "figure" y
- *  dentro de este crea una "img" y un "h5" que contienen la imagen y el nombre del pokemon
- *  respectivamente.
- *  Crea un "p" que contiene el número de pokedex del pokemon.
- *  Crea un "div" que contiene los tipos del pokemon y cada tipo se muestra en un "span"
- *  que se le da un estilo en base al tipo.
- * 
- * @returns {void}
- */
-function leerListaPokemons() {
+
+function leerListaPokemons(numeroPokemonLeidos = 10) {
     let listaPokemons = document.getElementsByClassName('lista-pokemons')[0]
-    for(let i = 0; i < 12; i++) {
-        let nuevoPokemon = document.createElement('li')
-        let idPokemon = String (pokedex[i].id)// id del pokemon para esta vuelta del bucle
-        //console.log(idPokemon)
-        nuevoPokemon.classList = 'caja-pokemon'	
-        //console.log('Añadiendo pokemon :', pokedex[i].name.english.toLowerCase())
-        listaPokemons.appendChild(nuevoPokemon)
-
-        let pokemon = document.createElement('figure')
-        pokemon.setAttribute('id', 'pokemon')
-        nuevoPokemon.appendChild(pokemon)
-
-        //imagenPokemon.setAttribute('src', '../pokedex/images/00' + pokedex[i].id + '.png')
-        //esa linea es a que pone el atributo a la imagen teniendo en cuenta el nombre de la foto depende del id
-        //pero los nombres de las fotos en la carpeta empiezan por 00 por lo tanto si es menos de 10 ponemos dos 0 antes del id del pokemon
-        //si es mayor 1 0 y si es mayor de 100 se pone el id ya que corresponde con el nombre de la foto
-
-        let imagenPokemon = document.createElement('img')
-        imagenPokemon.setAttribute('src', '../pokedex/images/' + idPokemon.padStart(3, '0') + '.png')
-        imagenPokemon.setAttribute('alt',  pokedex[i].name.english)
-        imagenPokemon.setAttribute('title', pokedex[i].name.english)
-        imagenPokemon.setAttribute('loading', 'lazy')
-        pokemon.appendChild(imagenPokemon)
-
-        let nombrePokemon = document.createElement('h5')
-        nombrePokemon.textContent = pokedex[i].name.english
-        pokemon.appendChild(nombrePokemon)
-
-        let numeroPokedex = document.createElement('p')
-        numeroPokedex.innerText = `Nº ${idPokemon.padStart(3, '0')}`
-        pokemon.appendChild(numeroPokedex)
-
-        let tipos = document.createElement('div')
-        tipos.classList = 'tipos'
-        pokemon.appendChild(tipos)
-
-        let tipo1 = document.createElement('span')
-        tipo1.textContent = pokedex[i].type[0]
-        tipo1.classList ='tag ' + pokedex[i].type[0].toLowerCase() //este esta correcto porque 1 tipo siempre hay 
-        tipos.appendChild(tipo1)
-
-        //no podemos usar toLowerCase para 2º tipo
-        // porque a veces no hay 2 tipos y nos entrega undefined
-        //tenemos que crear un if que indica que cuando el 2º tipo sea undefined no escriba el span
-        //console.log(pokedex[i].type[1])//consoe log para ver que nos dice cuando no tine 2 tipos (nos arroja undefined)
-
-        if (pokedex[i].type[1] !== undefined) {
-            //console.log('hay 2 tipos')
-            let tipo2 = document.createElement('span')
-            tipo2.textContent = pokedex[i].type[1]
-            tipo2.classList ='tag ' + pokedex[i].type[1].toLowerCase()
-            tipos.appendChild(tipo2)
-        }
-        
-        
-        
-
-        
-        
+    // Vacío la tabla antes de rellenar con los nuevos pokemons
+    while (listaPokemons.firstChild) {
+        console.log('borrando')
+        listaPokemons.removeChild(listaPokemons.firstChild) 
+    }
+    
+    //Este bucle recorre la lista de pokemons y nos envia un valor para cada vuelta a la funcion de pintar
+    for(let i = 0; i < numeroPokemonLeidos; i++) {
+        addPokemonToList(pokedex[i])
     }
     
 }
 
 
-/**
- * Busca un pokemon en la pokedex y lo pinta en la interfaz
- * 
- * @description
- *  Busca un pokemon en la pokedex y lo pinta en la interfaz con todos sus detalles
- *  como la imagen, el nombre, el numero de pokedex y los tipos
- * @param {string} campoBusqueda - El nombre o id del pokemon que se busca
- * @param {HTMLElement} dondeNuevaLista - El elemento donde se va a pintar el pokemon
- */
-function encontrarPokemon() {
+
+function encontrarPokemon(event) {/*Le pasamos el evento submit que lo declaramos en cuanto carga la pagina*/
+    //paramos evento submit
+    event.preventDefault()
     // Definimos variables
-    let campoBusqueda = document.getElementById('input-buscador')
-    let dondeNuevaLista = document.getElementsByClassName('main-pokedex')[0] //VAR con el main que es donde vamos a pintar el pokemon
-    let idPokemon  
-    for (let i = 0; i < pokedex.length; i++) {
-        let stringPokedexId = String(pokedex[i].id)
-        if (pokedex[i].name.english.toLowerCase() === campoBusqueda.value || stringPokedexId === campoBusqueda.value){//este if verifica si el nombre o el id esta dentro de la pokedex
-            idPokemon = String (pokedex[i].id)// id del pokemon para esta vuelta del bucle
-            //consolelog para comprobar el parametro
-            console.log('Buscas a ' + pokedex[i].name.english + ' con Nº de pokedex ' + pokedex[i].id)
-
-            //definimos la variable con el elemento a borrar
-            let listaPokemonsBorrar = document.getElementsByClassName('lista-pokemons')[0]
-            //console.log(listaPokemonsBorrar)
-            listaPokemonsBorrar.parentNode.removeChild(listaPokemonsBorrar)
-
-            //empezamos a pintar de 0 el ol 
-            let crearNuevaLista = document.createElement('ol')
-            crearNuevaLista.setAttribute('class','lista-pokemons')
-            dondeNuevaLista.appendChild(crearNuevaLista)
-            
-            let nuevoPokemon = document.createElement('li')
-            nuevoPokemon.classList = 'caja-pokemon'	
-            crearNuevaLista.appendChild(nuevoPokemon)
-
-            let pokemon = document.createElement('figure')
-            pokemon.setAttribute('id', 'pokemon')
-            nuevoPokemon.appendChild(pokemon)
-
-            //imagenPokemon.setAttribute('src', '../pokedex/images/00' + pokedex[i].id + '.png')
-            //esa linea es a que pone el atributo a la imagen teniendo en cuenta el nombre de la foto depende del id
-            //pero los nombres de las fotos en la carpeta empiezan por 00 por lo tanto si es menos de 10 ponemos dos 0 antes del id del pokemon
-            //si es mayor 1 0 y si es mayor de 100 se pone el id ya que corresponde con el nombre de la foto
-
-            let imagenPokemon = document.createElement('img')
-            imagenPokemon.setAttribute('src', '../pokedex/images/' + idPokemon.padStart(3, '0') + '.png')
-            imagenPokemon.setAttribute('alt',  pokedex[i].name.english)
-            imagenPokemon.setAttribute('title', pokedex[i].name.english)
-            pokemon.appendChild(imagenPokemon)
-
-            let nombrePokemon = document.createElement('h5')
-            nombrePokemon.textContent = pokedex[i].name.english
-            pokemon.appendChild(nombrePokemon)
-
-            let numeroPokedex = document.createElement('p')
-            numeroPokedex.innerText = `Nº ${idPokemon.padStart(3, '0')}`
-            pokemon.appendChild(numeroPokedex)
-
-            let tipos = document.createElement('div')
-            tipos.classList = 'tipos'
-            pokemon.appendChild(tipos)
-
-            let tipo1 = document.createElement('span')
-            tipo1.textContent = pokedex[i].type[0]
-            tipo1.classList ='tag ' + pokedex[i].type[0].toLowerCase() //este esta correcto porque 1 tipo siempre hay 
-            tipos.appendChild(tipo1)
-
-            //no podemos usar toLowerCase para 2º tipo
-            // porque a veces no hay 2 tipos y nos entrega undefined
-            //tenemos que crear un if que indica que cuando el 2º tipo sea undefined no escriba el span
-            //console.log(pokedex[i].type[1])//consoe log para ver que nos dice cuando no tine 2 tipos (nos arroja undefined)
-
-            if (pokedex[i].type[1] !== undefined) {
-                //console.log('hay 2 tipos')
-                let tipo2 = document.createElement('span')
-                tipo2.textContent = pokedex[i].type[1]
-                tipo2.classList ='tag ' + pokedex[i].type[1].toLowerCase()
-                tipos.appendChild(tipo2)
-            }
-        }
-        
+    let listaPokemons = document.getElementsByClassName('lista-pokemons')[0]
+    let buscador = document.getElementById('input-buscador')
+    let arrayBusqueda = []
+    //Buscamos valor blanco reiniciamos la pokedex de pantalla
+    if (buscador.value === '') {
+        leerListaPokemons(12)
     }
-    if(idPokemon === undefined){
-        //definimos la variable con el elemento a borrar
-        let listaPokemonsBorrar = document.getElementsByClassName('lista-pokemons')[0]
-        listaPokemonsBorrar.parentNode.removeChild(listaPokemonsBorrar)
-
-        //empezamos a pintar de 0 el ol 
-        let crearNuevaLista = document.createElement('ol')
-        crearNuevaLista.setAttribute('class','lista-pokemons')
-        dondeNuevaLista.appendChild(crearNuevaLista)
-        leerListaPokemons()
+    //Buscamos por numero
+    if(Number.isInteger(Number(buscador.value))){//si el campo es un numero
+        //Explicacion linea de abajo
+        //En el arrayBusqueda que es un array vacio filtramos pokedex creando un array con el pokemon que buscamos a traves del id
+        arrayBusqueda = pokedex.filter((pokemon) => pokemon.id === Number(buscador.value))
+        console.log('Buscas por id ')
+        console.log(arrayBusqueda) // aqui solo busca ese numero
+    }else{//si no es numero es texto
+        arrayBusqueda = pokedex.filter((pokemon) => pokemon.name.english.toLowerCase().includes(buscador.value.toLowerCase()))
+        console.log('Buscas por nombre ')
+        console.log(arrayBusqueda)
+    }
+    // Si no encontramos ninguno, avisamos al usuario y salimos    
+    if (arrayBusqueda.length === 0) {
+        window.alert('Pokemon no encontrado')
+        return
+    }
+    // Vacío la tabla antes de rellenar con los nuevos pokemons
+    while (listaPokemons.firstChild) {
+        listaPokemons.removeChild(listaPokemons.firstChild)
+    }
+    // Por cada pokemon encontrado
+    for (let i = 0; i < arrayBusqueda.length; i++) {
+        addPokemonToList(arrayBusqueda[i])
     }
 }
+
+function addPokemonToList(numeroIndicePokemon){ /*el valor que recibimos aqui es pokedex[i] del array  por vuelta del for de leeListaPokemon*/
+
+    let listaPokemons = document.getElementsByClassName('lista-pokemons')[0]
+    let nuevoPokemon = document.createElement('li')
+
+    nuevoPokemon.classList = 'caja-pokemon'	
+    console.log('Añadiendo pokemon :', numeroIndicePokemon.id + ' con nombre ' + numeroIndicePokemon.name.english)
+    listaPokemons.appendChild(nuevoPokemon)
+
+    let pokemon = document.createElement('figure')
+    pokemon.setAttribute('id', 'pokemon')
+    nuevoPokemon.appendChild(pokemon)
+
+    //estas linea es a que pone el atributo a la imagen teniendo en cuenta el nombre de la foto depende del id
+    //pero los nombres de las fotos en la carpeta empiezan por 00 por lo que usamos el metodo padStart
+    let imagenPokemon = document.createElement('img')
+    imagenPokemon.setAttribute('src', '../pokedex/images/' + String(numeroIndicePokemon.id).padStart(3, '0') + '.png')
+    imagenPokemon.setAttribute('alt',  numeroIndicePokemon.name.english)
+    imagenPokemon.setAttribute('title', numeroIndicePokemon.name.english)
+    imagenPokemon.setAttribute('loading', 'lazy')
+    pokemon.appendChild(imagenPokemon)
+
+    let nombrePokemon = document.createElement('h5')
+    nombrePokemon.textContent = numeroIndicePokemon.name.english
+    pokemon.appendChild(nombrePokemon)
+
+    let numeroPokedex = document.createElement('p')
+    numeroPokedex.innerText = `Nº ${String(numeroIndicePokemon.id).padStart(3, '0')}`
+    pokemon.appendChild(numeroPokedex)
+
+    let tipos = document.createElement('div')
+    tipos.classList = 'tipos'
+    pokemon.appendChild(tipos)
+
+    let tipo1 = document.createElement('span')
+    tipo1.textContent = numeroIndicePokemon.type[0]
+    tipo1.classList ='tag ' + numeroIndicePokemon.type[0].toLowerCase() //este esta correcto porque 1 tipo siempre hay 
+    tipos.appendChild(tipo1)
+
+    //no podemos usar toLowerCase para 2º tipo
+    // porque a veces no hay 2 tipos y nos entrega undefined
+    //tenemos que crear un if que indica que cuando el 2º tipo sea undefined no escriba el span
+    //console.log(pokedex[i].type[1])//consoe log para ver que nos dice cuando no tine 2 tipos (nos arroja undefined)
+
+    if (numeroIndicePokemon.type[1] !== undefined) {
+        let tipo2 = document.createElement('span')
+        tipo2.textContent = numeroIndicePokemon.type[1]
+        tipo2.classList ='tag ' + numeroIndicePokemon.type[1].toLowerCase()
+        tipos.appendChild(tipo2)
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //trabajao por hacer 
-//restricciones de busqueda en buscarPokemon() y funcionalidades (como buscar pokemon con minusculas (listo) o que salgan varios pokemon)
+//restricciones de busqueda en buscarPokemon() (Listo no son restricciones son condiciones de busqeuda) y 
+// funcionalidades (como buscar pokemon con minusculas (listo) o que salgan varios pokemon)
 
 /*
     # Tarea: buscar un pokemon
