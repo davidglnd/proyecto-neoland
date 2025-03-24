@@ -62,11 +62,11 @@ body{
             padding-top: 3%;
             padding-bottom: 3%;
             .caja-pokemon{
-                width:20%;
-                span:hover{
-                    animation: pulse 1s infinite ease-in-out alternate;
+                  width:20%;
+                  span:hover{
+                      animation: pulse 1s infinite ease-in-out alternate;
                 }
-                #pokemon{
+                figure{
                     display: flex;
                     flex-direction: column;
                     flex-wrap: wrap;
@@ -83,18 +83,14 @@ body{
                     div{
                       width:100%
                     }
-                    .enviar-favoritos{
-                      width: 40px;
-                      height: 40px;
-                    }
-                    .añadido-favoritos{
-                      width: 40px;
-                      height: 40px;
-                    }
 
                 }
-            }
-
+          }
+          .error{
+            width:100%;
+            min-height: 20vh;
+            text-align: center;
+          }
         }
     }
 }

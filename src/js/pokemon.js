@@ -106,7 +106,7 @@ function encontrarPokemon(event) {/*Le pasamos el evento submit que lo declaramo
     }
     // Si no encontramos ninguno, avisamos al usuario y salimos    
     if (arrayBusqueda.length === 0) {
-        window.alert('Pokemon no encontrado')
+        errorBusqueda(listaPokemons)
         return
     }
     // Vacío la tabla antes de rellenar con los nuevos pokemons
@@ -140,8 +140,10 @@ function addPokemonToList(numeroIndicePokemon){ /*el valor que recibimos aqui es
     listaPokemons.appendChild(nuevoPokemon)
 
     let pokemon = document.createElement('figure')
-    pokemon.setAttribute('id', 'pokemon')
+    pokemon.dataset.id = numeroIndicePokemon.id	
     nuevoPokemon.appendChild(pokemon)
+    //Añadimos el evento del click
+    pokemon.addEventListener('click', makeFavorite)
 
     //estas linea es a que pone el atributo a la imagen teniendo en cuenta el nombre de la foto depende del id
     //pero los nombres de las fotos en la carpeta empiezan por 00 por lo que usamos el metodo padStart
@@ -181,22 +183,6 @@ function addPokemonToList(numeroIndicePokemon){ /*el valor que recibimos aqui es
         tipo2.classList ='tag ' + numeroIndicePokemon.type[1].toLowerCase()
         tipos.appendChild(tipo2)
     }
-//Aqui creamos una imagen que vamos a usar de boton para agregar a favoritos, quizas tengamos que añadir 
-// un form para enviar el input oculto con el id del pokemon que estamos añadiendo
-    let favorito = document.createElement('img')
-    favorito.id = numeroIndicePokemon.id
-    favorito.classList = 'enviar-favoritos'
-    favorito.src = '/img/favoritosinmarcar.png'
-    pokemon.appendChild(favorito)
-
-    let favoritoOculto = document.createElement('input')
-    favoritoOculto.id = 'oculto'
-    favoritoOculto.setAttribute('type' , 'hidden')
-    favoritoOculto.setAttribute('value' , numeroIndicePokemon.id)
-    pokemon.appendChild(favoritoOculto)
-    
-
-
 }
 function onInputKeyUp(event){
     let buscador = document.getElementById('input-buscador')
@@ -204,7 +190,41 @@ function onInputKeyUp(event){
         leerListaPokemons(12)
     }
 }
+/**
+ * Muestra un mensaje de error en la tabla de pokemons.
+ * 
+ * @description
+ *  Limpia la tabla de pokemons y muestra un mensaje de error.
+ *  El mensaje de error indica que no se ha encontrado pokemon con el nombre o id de pokedex
+ *  que se ha buscado.
+ * @param {HTMLElement} listaPokemons - El elemento que contiene la tabla de pokemons.
+ * @returns {void}
+ */
+function errorBusqueda(listaPokemons){
+    while (listaPokemons.firstChild) {
+        listaPokemons.removeChild(listaPokemons.firstChild)
+    }
+    let mensajeError = document.createElement('p')
+    mensajeError.innerText = `No hemos encontrado ningun pokemon con ese nombre o numero de pokedex, intentalo de nuevo
+    Revisa tu busqueda y aplica cambios para encontrar otro pokemon`
+    mensajeError.classList = 'error'
+    listaPokemons.appendChild(mensajeError)
+}
+/**
+ * Marca como favorito el pokemon que se le pasa como this.
+ * 
+ * @description
+ *  Añade la clase "favorite" al elemento "li" que contiene el pokemon.
+ *  El pokemon se pasa como this de la funcion.
+ *  Se utiliza el evento "click" para lanzar la funcion.
+ * @param {Event} event - El evento "click" que se lanza al pinchar en el pokemon.
+ * @returns {void}
+ */
+ function makeFavorite(event){
+    console.log('Ficha pokemon', this.dataset.id)
+    this.parentNode.classList.add('favorite')
 
+ }
 
 
 
