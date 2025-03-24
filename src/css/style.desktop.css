@@ -83,6 +83,10 @@ body{
                     div{
                       width:100%
                     }
+                    .guardar-favorito{
+                      width:40px;
+                      height: 40px;
+                    }
 
                 }
           }

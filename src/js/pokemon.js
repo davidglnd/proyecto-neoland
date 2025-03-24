@@ -140,10 +140,8 @@ function addPokemonToList(numeroIndicePokemon){ /*el valor que recibimos aqui es
     listaPokemons.appendChild(nuevoPokemon)
 
     let pokemon = document.createElement('figure')
-    pokemon.dataset.id = numeroIndicePokemon.id	
     nuevoPokemon.appendChild(pokemon)
-    //Añadimos el evento del click
-    pokemon.addEventListener('click', makeFavorite)
+
 
     //estas linea es a que pone el atributo a la imagen teniendo en cuenta el nombre de la foto depende del id
     //pero los nombres de las fotos en la carpeta empiezan por 00 por lo que usamos el metodo padStart
@@ -183,6 +181,26 @@ function addPokemonToList(numeroIndicePokemon){ /*el valor que recibimos aqui es
         tipo2.classList ='tag ' + numeroIndicePokemon.type[1].toLowerCase()
         tipos.appendChild(tipo2)
     }
+
+    let imagenFavorito = document.createElement('img')
+    imagenFavorito.setAttribute('src', '/img/favoritosinmarcar.png')
+    imagenFavorito.setAttribute('alt', 'añadirfavorito')
+    imagenFavorito.setAttribute('class', 'guardar-favorito')
+    imagenFavorito.dataset.id = numeroIndicePokemon.id	
+    //Añadimos el evento del click
+    imagenFavorito.addEventListener('click', makeFavorite)
+    pokemon.appendChild(imagenFavorito)
+    
+    let listaFavoritos = []
+    if (localStorage.getItem('idFavoritos')){
+        listaFavoritos = JSON.parse(localStorage.getItem('idFavoritos'))
+    }
+
+    if(listaFavoritos.includes(String(numeroIndicePokemon.id))){
+        pokemon.classList.add('favorite')
+        imagenFavorito.setAttribute('src', '/img/favoritomarcado.png')
+    }
+    
 }
 function onInputKeyUp(event){
     let buscador = document.getElementById('input-buscador')
@@ -221,9 +239,29 @@ function errorBusqueda(listaPokemons){
  * @returns {void}
  */
  function makeFavorite(event){
-    console.log('Ficha pokemon', this.dataset.id)
-    this.parentNode.classList.add('favorite')
+    let listaFavoritos = []
 
+    if (localStorage.getItem('idFavoritos')) {
+        listaFavoritos = JSON.parse(localStorage.getItem('idFavoritos'))
+    }
+
+    if(listaFavoritos.includes(this.dataset.id)){
+        listaFavoritos = listaFavoritos.filter(id => id !== this.dataset.id)
+        this.parentNode.classList.remove('favorite')
+        this.removeAttribute('src')
+        this.setAttribute('src', '/img/favoritosinmarcar.png')
+        
+    }else{
+        listaFavoritos.push(this.dataset.id)
+        this.parentNode.classList.add('favorite')
+        this.removeAttribute('src')
+        this.setAttribute('src', '/img/favoritomarcado.png')
+        console.log(this.dataset.id)
+    }
+    console.log(listaFavoritos)
+    localStorage.setItem('idFavoritos', JSON.stringify(listaFavoritos))
+
+    
  }
 
 
