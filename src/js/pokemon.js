@@ -30,6 +30,7 @@ function onDOMContentLoaded() {
     campoTexto.addEventListener('keyup' , onInputKeyUp)
     // Leo la lista de pokemons y pinto el HTML
     leerListaPokemons(12)
+    mostrarFavoritos()
     console.log('Se ha cargado la pagina')
 }
 
@@ -202,6 +203,15 @@ function addPokemonToList(numeroIndicePokemon){ /*el valor que recibimos aqui es
     }
     
 }
+/**
+ * Evento que se lanza al subir el valor de un input.
+ * 
+ * @description
+ *  Si el valor del input es vacio, se llama a leerListaPokemons con el parametro 12
+ *  para que se muestren los 12 primeros pokemons en la lista.
+ * @listens KeyUp
+ * @returns {void}
+ */
 function onInputKeyUp(event){
     let buscador = document.getElementById('input-buscador')
     if(buscador.value === ''){
@@ -256,13 +266,41 @@ function errorBusqueda(listaPokemons){
         this.parentNode.classList.add('favorite')
         this.removeAttribute('src')
         this.setAttribute('src', '/img/favoritomarcado.png')
-        console.log(this.dataset.id)
+        //console.log(this.dataset.id)
     }
     console.log(listaFavoritos)
     localStorage.setItem('idFavoritos', JSON.stringify(listaFavoritos))
-
+    mostrarFavoritos();
     
  }
+function mostrarFavoritos(){
+    let listaFavoritos = document.getElementById('lista-favoritos')
+    let favoritos = JSON.parse(localStorage.getItem('idFavoritos'))
+    console.log(favoritos)
+    //console.log(favoritos)
+    while (listaFavoritos.firstChild) {
+        //borramos mientras haya un hijo
+        listaFavoritos.removeChild(listaFavoritos.firstChild)
+    }
+    
+    if (favoritos?.length > 0) {
+        //si favoritos no es undefined y es superior a 0
+        //cogemos listaFavoritos y como su padre tiene  div-favoritos le añade la clase visible
+        //le añadimos la clase visible
+        listaFavoritos.closest('.div-favoritos').classList.add('visible')
+        // Buscamos los datos del pokemon a partir de su id
+        favoritos.forEach((id) => {
+        // con sus datos, construimos la ficha o lo que necesitemos
+        let pokemon = pokedex.find((pokemon) => String(pokemon.id) === id)
+        let li = document.createElement('li')
+        li.textContent = pokemon.name.english
+        listaFavoritos.appendChild(li)
+      })
+    } else {
+        listaFavoritos.closest('.div-favoritos').classList.remove('visible')
+    }
+    
+}
 
 
 
@@ -270,14 +308,6 @@ function errorBusqueda(listaPokemons){
 
 
 
-
-
-
-
-
-//trabajao por hacer 
-//restricciones de busqueda en buscarPokemon() (Listo no son restricciones son condiciones de busqeuda) y 
-// funcionalidades (como buscar pokemon con minusculas (listo) o que salgan varios pokemon)
 
 /*
     # Tarea: buscar un pokemon
