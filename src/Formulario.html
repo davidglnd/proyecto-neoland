@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/style.desktop.css" media="screen and (min-width: 481px)">
     <link rel="stylesheet" href="css/style.mobile.css" media="screen and (max-width: 481px)">
-    <script src="js/pokemon.js" type="module" defer></script>
+    <script src="js/formulario.js" type="module" defer></script>
     <title>Pokedex</title>
 </head>
 <body>
@@ -17,13 +17,13 @@
                 <li><a href="">Inicio</a></li>
                 <li><a href="index.html">Pokedex</a></li>
                 <li><a href="/readme.md">Videojuego y aplicaciones</a></li>
-                <li><a href="Formulario.html">Familias de pokemon</a></li>
+                <li><a href="/readme.md">Informacion pokemon</a></li>
                 <li><a href="/readme.md">Dibujos animados</a></li>
                 <li><a href="/readme.md">Eventos de Play! Pokemon</a></li>
                 <li><a href="/readme.md">Noticias</a></li>
             </menu>
         </nav>
-        <h1>Pokedex</h1>
+        <h1>Informacion pokemon</h1>
     </header>
     <main class="main-pokedex">
         <form id="formulario" action="">
@@ -32,14 +32,17 @@
             <button type="submit" id="botonbusqueda">Buscar</button>
             <p id="indicaciones">¡Usa la busqueda avanzada para encontrar Pokémon por su tipo, debilidad y demas datos!</p>
         </form>
-        <div class="div-favoritos">
-            <p>Lista de favoritos</p>
-            <ul id="lista-favoritos">
-                <p>que borra</p>
-            </ul>
-        </div>
-        <ol class="lista-pokemons" >
-            
+        <ol class="lista-informacion" >
+            <li class="caja-pokemon-informacion">
+                <figure class="figure-informacion">
+                    <img src="../pokedex/images/123.png" class="imgPokemon">
+                    <p class="nombre-pokemon">scyther</p>
+                    <p>Generacion : generation-i</p>
+                    <p>No es legendario</p>
+                    <p>Su famila de huevos es: bug</p>
+                    <p>Tasa de crecimiento: medium</p>
+                </figure>
+            </li>
         </ol>
     </main>
 </body>

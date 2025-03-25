@@ -126,6 +126,33 @@ body{
             text-align: center;
           }
         }
+        ol.lista-informacion{
+          width: 90%;
+          margin:1% auto;
+          background: linear-gradient(0deg, rgba(255,255,255,1) 50%, rgba(255,0,0,1) 50%);
+          shape-outside: circle();
+          clip-path: circle();
+          li.caja-pokemon-informacion{
+            width:60%;
+
+            figure{
+              display:flex;
+              flex-direction: column;
+              align-items: center;
+              border-radius: 220px;
+              padding-top: 50px;
+              padding-bottom: 50px;
+              gap: 10px;
+              img{
+                width: 250px;
+                height: 250px;
+              }
+              .nombre-pokemon{
+                font-weight: bold;
+              }
+            }
+          }
+        }
     }
 }
 /*animaciones*/
