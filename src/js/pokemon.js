@@ -249,34 +249,49 @@ function errorBusqueda(listaPokemons){
  */
 function makeFavorite(event){
     let listaFavoritos = []
-
-    if (localStorage.getItem('idFavoritos')) {
-        listaFavoritos = JSON.parse(localStorage.getItem('idFavoritos'))
-    }
-
-    if(listaFavoritos.includes(this.dataset.id)){
-        listaFavoritos = listaFavoritos.filter(id => id !== this.dataset.id)
-        this.parentNode.classList.remove('favorite')
-        this.removeAttribute('src')
-        this.setAttribute('src', '/img/favoritosinmarcar.png')
+    let listaFavoritosGeneracionI = []
+    fetch(`https://pokeapi.co/api/v2/pokemon-species/${this.dataset.id}`)
+    .then((respuesta) => { 
+        if (!respuesta.ok) {
+            throw new Error(`HTTP error! Status: ${respuesta.status}`);
+        }
+        return respuesta.json();
+        })
+    .then((informacionPokemonApi) => {
+        console.log(informacionPokemonApi.generation.name)
+        if (localStorage.getItem('ID Favoritos')) {
+            listaFavoritos = JSON.parse(localStorage.getItem('ID Favoritos'))
+            listaFavoritosGeneracionI = JSON.parse(localStorage.getItem('Generacion I'))
+        }
+    
+        if(listaFavoritos.includes(this.dataset.id)){
+            listaFavoritos = listaFavoritos.filter(id => id !== this.dataset.id)
+            this.parentNode.classList.remove('favorite')
+            this.removeAttribute('src')
+            this.setAttribute('src', '/img/favoritosinmarcar.png')
+            
+        }else{
+            listaFavoritosGeneracionI.push(this.dataset.id)
+            listaFavoritos.push(this.dataset.id)
+            this.parentNode.classList.add('favorite')
+            this.removeAttribute('src')
+            this.setAttribute('src', '/img/favoritomarcado.png')
+            //console.log(this.dataset.id)
+        }
         
-    }else{
-        listaFavoritos.push(this.dataset.id)
-        this.parentNode.classList.add('favorite')
-        this.removeAttribute('src')
-        this.setAttribute('src', '/img/favoritomarcado.png')
-        //console.log(this.dataset.id)
-    }
-    localStorage.setItem('idFavoritos', JSON.stringify(listaFavoritos))
-    //console.log('id = ' + this.dataset.id)
+        localStorage.setItem('ID Favoritos', JSON.stringify(listaFavoritos))
+        localStorage.setItem('Generacion I' , JSON.stringify(listaFavoritosGeneracionI))
+        //console.log('id = ' + this.dataset.id)
+    
+        mostrarFavoritos();
+     })
 
-    mostrarFavoritos();
     
  }
 function mostrarFavoritos(){
     let listaFavoritos = document.getElementById('lista-favoritos')
     let listaFavoritosGeneraciones = document.getElementById('lista-favoritos-generaciones')
-    let favoritos = JSON.parse(localStorage.getItem('idFavoritos'))
+    let favoritos = JSON.parse(localStorage.getItem('ID Favoritos'))
     while (listaFavoritos.firstChild) {
         //borramos mientras haya un hijo
         listaFavoritos.removeChild(listaFavoritos.firstChild)
