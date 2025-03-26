@@ -15,9 +15,9 @@
         <nav>
             <menu id="menu">
                 <li><a href="">Inicio</a></li>
-                <li><a href="index.html">Pokedex</a></li>
+                <li id="localizacion"><a href="index.html">Pokedex</a></li>
                 <li><a href="/readme.md">Videojuego y aplicaciones</a></li>
-                <li><a href="Formulario.html">Familias de pokemon</a></li>
+                <li><a href="formulario.html">Estadisticas de pokemon</a></li>
                 <li><a href="/readme.md">Dibujos animados</a></li>
                 <li><a href="/readme.md">Eventos de Play! Pokemon</a></li>
                 <li><a href="/readme.md">Noticias</a></li>
@@ -27,15 +27,18 @@
     </header>
     <main class="main-pokedex">
         <form id="formulario" action="">
-            <legend>Busca por nombre o Nºpokedex</legend>
+            <legend>Buscador</legend>
             <input type="text" name="buscador" id="input-buscador">
             <button type="submit" id="botonbusqueda">Buscar</button>
-            <p id="indicaciones">¡Usa la busqueda avanzada para encontrar Pokémon por su tipo, debilidad y demas datos!</p>
+            <p id="indicaciones">Busqueda por Nºpokedex o nombre. ¡Hasta 7ª generación! </p>
         </form>
         <div class="div-favoritos">
             <p>Lista de favoritos</p>
-            <ul id="lista-favoritos">
-                <p>que borra</p>
+            <ul id="lista-favoritos"></ul>
+        </div>
+        <div class="generaciones-favoritos">
+            <p>Lista de favoritos por generacion</p>
+            <ul id="lista-favoritos-generaciones">
             </ul>
         </div>
         <ol class="lista-pokemons" >

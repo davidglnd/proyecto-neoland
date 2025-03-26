@@ -52,7 +52,7 @@ body{
                 height: 40px ;
             }
         }
-        .div-favoritos{
+        .div-favoritos, .generaciones-favoritos{
           display:none;
           flex-direction: column;
           align-items: center;
@@ -129,12 +129,11 @@ body{
         ol.lista-informacion{
           width: 90%;
           margin:1% auto;
-          background: linear-gradient(0deg, rgba(255,255,255,1) 50%, rgba(255,0,0,1) 50%);
-          shape-outside: circle();
-          clip-path: circle();
           li.caja-pokemon-informacion{
             width:60%;
-
+            background: linear-gradient(0deg, rgba(255,255,255,1) 50%, rgba(255,0,0,1) 50%);
+            shape-outside: circle();
+            clip-path: circle();
             figure{
               display:flex;
               flex-direction: column;
@@ -153,6 +152,12 @@ body{
             }
           }
         }
+        ol.error{
+          width: 90%;
+          margin:1% auto;
+          background-color:rgb(255, 222, 222) ;
+        }
+
     }
 }
 /*animaciones*/

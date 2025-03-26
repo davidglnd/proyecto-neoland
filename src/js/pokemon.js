@@ -26,7 +26,6 @@ function onDOMContentLoaded() {
     let campoTexto = document.getElementById('input-buscador')
      // Asigno los eventos que se observan a partir de que cargue la página
     formulario.addEventListener('submit', encontrarPokemon)
-    //botonBuscar.addEventListener('click', () => console.log('Boton buscar')) //el boton es submit asi que no lo neceisto
     campoTexto.addEventListener('keyup' , onInputKeyUp)
     // Leo la lista de pokemons y pinto el HTML
     leerListaPokemons(12)
@@ -248,7 +247,7 @@ function errorBusqueda(listaPokemons){
  * @param {Event} event - El evento "click" que se lanza al pinchar en el pokemon.
  * @returns {void}
  */
- function makeFavorite(event){
+function makeFavorite(event){
     let listaFavoritos = []
 
     if (localStorage.getItem('idFavoritos')) {
@@ -268,16 +267,16 @@ function errorBusqueda(listaPokemons){
         this.setAttribute('src', '/img/favoritomarcado.png')
         //console.log(this.dataset.id)
     }
-    console.log(listaFavoritos)
     localStorage.setItem('idFavoritos', JSON.stringify(listaFavoritos))
+    //console.log('id = ' + this.dataset.id)
+
     mostrarFavoritos();
     
  }
 function mostrarFavoritos(){
     let listaFavoritos = document.getElementById('lista-favoritos')
+    let listaFavoritosGeneraciones = document.getElementById('lista-favoritos-generaciones')
     let favoritos = JSON.parse(localStorage.getItem('idFavoritos'))
-    console.log(favoritos)
-    //console.log(favoritos)
     while (listaFavoritos.firstChild) {
         //borramos mientras haya un hijo
         listaFavoritos.removeChild(listaFavoritos.firstChild)
@@ -288,6 +287,7 @@ function mostrarFavoritos(){
         //cogemos listaFavoritos y como su padre tiene  div-favoritos le añade la clase visible
         //le añadimos la clase visible
         listaFavoritos.closest('.div-favoritos').classList.add('visible')
+        listaFavoritosGeneraciones.closest('.generaciones-favoritos').classList.add('visible')
         // Buscamos los datos del pokemon a partir de su id
         favoritos.forEach((id) => {
         // con sus datos, construimos la ficha o lo que necesitemos
@@ -298,7 +298,9 @@ function mostrarFavoritos(){
       })
     } else {
         listaFavoritos.closest('.div-favoritos').classList.remove('visible')
+        listaFavoritosGeneraciones.closest('.generaciones-favoritos').classList.remove('visible')
     }
+    
     
 }
 

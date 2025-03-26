@@ -153,6 +153,15 @@ html{
                 color: white;
               }
             }
+        .generaciones-favoritos{
+            background-color: greenyellow;
+            color: black;
+            li {
+                background-color: rgb(94, 94, 19);
+                color: white;
+              }
+            }
+        } 
         ol{
             .caja-pokemon{
                 background-color: white;
@@ -177,4 +186,3 @@ html{
             background-color: yellow;
         }
     }
-}

@@ -1,12 +1,11 @@
-import pokedex from '../pokedex/pokedex.json' with { type: "json" }
 
 window.addEventListener("DOMContentLoaded", onDOMContentLoaded)
 
 function onDOMContentLoaded() {
-    let formulario = document.getElementById('formulario')
-    formulario.addEventListener('submit', encontrarPokemon)
+    let formulario = document.getElementById('formulario-informacion')
+    formulario.addEventListener('submit', encontrarPokemonEstadisticas)
 }
-function encontrarPokemon(event){
+function encontrarPokemonEstadisticas(event){
     let formulario = document.getElementById('input-buscador')
     let listaInformacion = document.getElementsByClassName('lista-informacion')[0]
 
@@ -37,17 +36,22 @@ function encontrarPokemon(event){
                 // console.log('borrando')
                 listaInformacion.removeChild(listaInformacion.firstChild) 
              }
-            pintarPokemon(informacionPokemonApi)
+             pintarPokemonEstadisticas(informacionPokemonApi)
         })
-        // .catch((mensajeError) => {
-        //     console.log('sasd')
-        //     let error = document.createElement('p')
-        //     error.innerText = 'UPS... Algo ha salido mal, intentalo de nuevo'
-        //     console.log(error)
-        // })
+        .catch((mensajeError) => {
+            let error = document.createElement('p')
+            error.innerText = 'UPS... Pokemon no encontrado'
+            error.setAttribute('class', 'error')
+            while (listaInformacion.firstChild) {
+                listaInformacion.removeChild(listaInformacion.firstChild) 
+             }
+            listaInformacion.appendChild(error)
+            listaInformacion.closest('.lista-informacion').classList.add('error')
+            console.log(error)
+        })
 }
 
-function pintarPokemon(pokemon){
+function pintarPokemonEstadisticas(pokemon){
     console.log(pokemon)
     let listaInformacion = document.getElementsByClassName('lista-informacion')[0]
 

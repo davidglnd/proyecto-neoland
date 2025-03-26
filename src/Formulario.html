@@ -15,9 +15,9 @@
         <nav>
             <menu id="menu">
                 <li><a href="">Inicio</a></li>
-                <li><a href="index.html">Pokedex</a></li>
+                <li ><a href="index.html">Pokedex</a></li>
                 <li><a href="/readme.md">Videojuego y aplicaciones</a></li>
-                <li><a href="/readme.md">Informacion pokemon</a></li>
+                <li id="localizacion"><a href="/readme.md">Estadisticas de pokemon</a></li>
                 <li><a href="/readme.md">Dibujos animados</a></li>
                 <li><a href="/readme.md">Eventos de Play! Pokemon</a></li>
                 <li><a href="/readme.md">Noticias</a></li>
@@ -26,23 +26,13 @@
         <h1>Informacion pokemon</h1>
     </header>
     <main class="main-pokedex">
-        <form id="formulario" action="">
+        <form id="formulario-informacion" action="">
             <legend>Busca por nombre o Nºpokedex</legend>
             <input type="text" name="buscador" id="input-buscador">
             <button type="submit" id="botonbusqueda">Buscar</button>
-            <p id="indicaciones">¡Usa la busqueda avanzada para encontrar Pokémon por su tipo, debilidad y demas datos!</p>
+            <p id="indicaciones">Busqueda por Nºpokedex o nombre. ¡Hasta 7ª generación!</p>
         </form>
         <ol class="lista-informacion" >
-            <li class="caja-pokemon-informacion">
-                <figure class="figure-informacion">
-                    <img src="../pokedex/images/123.png" class="imgPokemon">
-                    <p class="nombre-pokemon">scyther</p>
-                    <p>Generacion : generation-i</p>
-                    <p>No es legendario</p>
-                    <p>Su famila de huevos es: bug</p>
-                    <p>Tasa de crecimiento: medium</p>
-                </figure>
-            </li>
         </ol>
     </main>
 </body>
