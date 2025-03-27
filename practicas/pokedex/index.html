@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.desktop.css" media="screen and (min-width: 481px)">
+    <link rel="stylesheet" href="css/style.mobile.css" media="screen and (max-width: 481px)">
+    <script src="js/pokemon.js" type="module" defer></script>
+    <title>Pokedex</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <menu id="menu">
+                <li><a href="">Inicio</a></li>
+                <li id="localizacion"><a href="index.html">Pokedex</a></li>
+                <li><a href="/readme.md">Videojuego y aplicaciones</a></li>
+                <li><a href="formulario.html">Estadisticas de pokemon</a></li>
+                <li><a href="/readme.md">Dibujos animados</a></li>
+                <li><a href="/readme.md">Eventos de Play! Pokemon</a></li>
+                <li><a href="/readme.md">Noticias</a></li>
+            </menu>
+        </nav>
+        <h1>Pokedex</h1>
+    </header>
+    <main class="main-pokedex">
+        <form id="formulario" action="">
+            <legend>Buscador</legend>
+            <input type="text" name="buscador" id="input-buscador">
+            <button type="submit" id="botonbusqueda">Buscar</button>
+            <p id="indicaciones">Busqueda por Nºpokedex o nombre. ¡Hasta 7ª generación! </p>
+        </form>
+        <div class="div-favoritos">
+            <p>Lista de favoritos</p>
+            <ul id="lista-favoritos">
+                
+            </ul>
+        </div>
+        <div class="generaciones-favoritos">
+            <p>Lista de favoritos por generacion</p>
+            <ul id="lista-favoritos-generaciones">>
+
+            </ul>
+        </div>
+        <ol class="lista-pokemons" >
+            
+        </ol>
+    </main>
+</body>
+</html>
