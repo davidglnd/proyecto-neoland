@@ -33,7 +33,7 @@ function encontrarPokemonEstadisticas(event){
             //console.log(formulario.value)
             //console.log(informacionPokemonApi)
             while (listaInformacion.firstChild) {
-                // console.log('borrando')
+                // console.log('borrando').
                 listaInformacion.removeChild(listaInformacion.firstChild) 
              }
              pintarPokemonEstadisticas(informacionPokemonApi)
