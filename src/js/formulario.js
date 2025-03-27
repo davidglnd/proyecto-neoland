@@ -82,7 +82,7 @@ function pintarPokemonEstadisticas(pokemon){
     tasaCrecimiento.innerText = 'Tasa de crecimiento: ' + pokemon.growth_rate.name
 
     let imagenPokemon = document.createElement('img')
-    imagenPokemon.setAttribute('src', '../pokedex-repo/images/' + String(pokemon.id).padStart(3, '0') + '.png')
+    imagenPokemon.setAttribute('src', '../pokedex/images/' + String(pokemon.id).padStart(3, '0') + '.png')
     imagenPokemon.setAttribute('class','imgPokemon')
 
     listaInformacion.appendChild(informacionPokemon)
