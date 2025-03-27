@@ -1,3 +1,0 @@
-[submodule "pokedex"]
-	path = src/pokedex-repo
-	url = https://github.com/fanzeyi/pokemon.json

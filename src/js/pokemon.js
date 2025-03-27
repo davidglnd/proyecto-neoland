@@ -1,5 +1,5 @@
 // 3. READ base de datos
-import pokedex from '../pokedex-repo/pokedex.json' with { type: "json" }
+import pokedex from '../pokedex/pokedex.json' with { type: "json" }
 
 window.addEventListener("DOMContentLoaded", onDOMContentLoaded)
 
@@ -109,16 +109,27 @@ function encontrarPokemon(event) {/*Le pasamos el evento submit que lo declaramo
         errorBusqueda(listaPokemons)
         return
     }
-    // Vacío la tabla antes de rellenar con los nuevos pokemons
-    while (listaPokemons.firstChild) {
-        listaPokemons.removeChild(listaPokemons.firstChild)
-    }
+    vaciarTabla(listaPokemons)
     // Por cada pokemon encontrado
     for (let i = 0; i < arrayBusqueda.length; i++) {
         addPokemonToList(arrayBusqueda[i])
     }
 }
-
+/**
+ * Vacia la tabla de pokemons antes de rellenar con nuevos pokemons.
+ * 
+ * @description
+ *  Vacia la tabla de pokemons antes de rellenar con nuevos pokemons.
+ *  Es una funcion auxiliar que se utiliza en encontrarPokemon.
+ * 
+ * @returns {void}
+ */
+function vaciarTabla(listaPokemons){
+        // Vacío la tabla antes de rellenar con los nuevos pokemons
+        while (listaPokemons.firstChild) {
+            listaPokemons.removeChild(listaPokemons.firstChild)
+        }
+}
 /**
  * Añade un pokemon a la lista de pokemons.
  * 
@@ -146,7 +157,7 @@ function addPokemonToList(numeroIndicePokemon){ /*el valor que recibimos aqui es
     //estas linea es a que pone el atributo a la imagen teniendo en cuenta el nombre de la foto depende del id
     //pero los nombres de las fotos en la carpeta empiezan por 00 por lo que usamos el metodo padStart
     let imagenPokemon = document.createElement('img')
-    imagenPokemon.setAttribute('src', '../pokedex-repo/images/' + String(numeroIndicePokemon.id).padStart(3, '0') + '.png')
+    imagenPokemon.setAttribute('src', '../pokedex/images/' + String(numeroIndicePokemon.id).padStart(3, '0') + '.png')
     imagenPokemon.setAttribute('alt',  numeroIndicePokemon.name.english)
     imagenPokemon.setAttribute('title', numeroIndicePokemon.name.english)
     imagenPokemon.setAttribute('loading', 'lazy')
@@ -189,18 +200,18 @@ function addPokemonToList(numeroIndicePokemon){ /*el valor que recibimos aqui es
     imagenFavorito.dataset.id = numeroIndicePokemon.id	
     //Añadimos el evento del click
     imagenFavorito.addEventListener('click', makeFavorite)
-    pokemon.appendChild(imagenFavorito)
     
+    //TO DO esto pora SOLID intentar cambiar a una funcion a parte
     let listaFavoritos = []
-    if (localStorage.getItem('idFavoritos')){
-        listaFavoritos = JSON.parse(localStorage.getItem('idFavoritos'))
+    if (localStorage.getItem('ID Favoritos')){
+        listaFavoritos = JSON.parse(localStorage.getItem('ID Favoritos'))
     }
 
     if(listaFavoritos.includes(String(numeroIndicePokemon.id))){
         pokemon.classList.add('favorite')
         imagenFavorito.setAttribute('src', '/img/favoritomarcado.png')
     }
-    
+    pokemon.appendChild(imagenFavorito)
 }
 /**
  * Evento que se lanza al subir el valor de un input.
@@ -211,9 +222,8 @@ function addPokemonToList(numeroIndicePokemon){ /*el valor que recibimos aqui es
  * @listens KeyUp
  * @returns {void}
  */
-function onInputKeyUp(event){
-    let buscador = document.getElementById('input-buscador')
-    if(buscador.value === ''){
+function onInputKeyUp(event){ 
+    if(document.getElementById('input-buscador').value === ''){
         leerListaPokemons(12)
     }
 }
@@ -228,9 +238,7 @@ function onInputKeyUp(event){
  * @returns {void}
  */
 function errorBusqueda(listaPokemons){
-    while (listaPokemons.firstChild) {
-        listaPokemons.removeChild(listaPokemons.firstChild)
-    }
+    vaciarTabla(listaPokemons)
     let mensajeError = document.createElement('p')
     mensajeError.innerText = `No hemos encontrado ningun pokemon con ese nombre o numero de pokedex, intentalo de nuevo
     Revisa tu busqueda y aplica cambios para encontrar otro pokemon`
@@ -249,29 +257,19 @@ function errorBusqueda(listaPokemons){
  */
 function makeFavorite(event){
     let listaFavoritos = []
-    let listaFavoritosGeneracionI = []
-    fetch(`https://pokeapi.co/api/v2/pokemon-species/${this.dataset.id}`)
-    .then((respuesta) => { 
-        if (!respuesta.ok) {
-            throw new Error(`HTTP error! Status: ${respuesta.status}`);
-        }
-        return respuesta.json();
-        })
-    .then((informacionPokemonApi) => {
-        console.log(informacionPokemonApi.generation.name)
         if (localStorage.getItem('ID Favoritos')) {
             listaFavoritos = JSON.parse(localStorage.getItem('ID Favoritos'))
-            listaFavoritosGeneracionI = JSON.parse(localStorage.getItem('Generacion I'))
         }
     
         if(listaFavoritos.includes(this.dataset.id)){
+
             listaFavoritos = listaFavoritos.filter(id => id !== this.dataset.id)
             this.parentNode.classList.remove('favorite')
             this.removeAttribute('src')
             this.setAttribute('src', '/img/favoritosinmarcar.png')
+  
             
         }else{
-            listaFavoritosGeneracionI.push(this.dataset.id)
             listaFavoritos.push(this.dataset.id)
             this.parentNode.classList.add('favorite')
             this.removeAttribute('src')
@@ -280,17 +278,10 @@ function makeFavorite(event){
         }
         
         localStorage.setItem('ID Favoritos', JSON.stringify(listaFavoritos))
-        localStorage.setItem('Generacion I' , JSON.stringify(listaFavoritosGeneracionI))
-        //console.log('id = ' + this.dataset.id)
-    
-        mostrarFavoritos();
-     })
-
-    
+        mostrarFavoritos(); 
  }
 function mostrarFavoritos(){
     let listaFavoritos = document.getElementById('lista-favoritos')
-    let listaFavoritosGeneraciones = document.getElementById('lista-favoritos-generaciones')
     let favoritos = JSON.parse(localStorage.getItem('ID Favoritos'))
     while (listaFavoritos.firstChild) {
         //borramos mientras haya un hijo
@@ -302,7 +293,6 @@ function mostrarFavoritos(){
         //cogemos listaFavoritos y como su padre tiene  div-favoritos le añade la clase visible
         //le añadimos la clase visible
         listaFavoritos.closest('.div-favoritos').classList.add('visible')
-        listaFavoritosGeneraciones.closest('.generaciones-favoritos').classList.add('visible')
         // Buscamos los datos del pokemon a partir de su id
         favoritos.forEach((id) => {
         // con sus datos, construimos la ficha o lo que necesitemos
@@ -313,7 +303,7 @@ function mostrarFavoritos(){
       })
     } else {
         listaFavoritos.closest('.div-favoritos').classList.remove('visible')
-        listaFavoritosGeneraciones.closest('.generaciones-favoritos').classList.remove('visible')
+
     }
     
     
