@@ -1,5 +1,6 @@
 export class User {
-
+  name
+  email
   /**
    * Constructor de la clase User
    * @param {string} name - El nombre del usuario
